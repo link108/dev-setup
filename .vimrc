@@ -1,5 +1,5 @@
 
-
+" TODO file needs cleanup, removing un-necessary pacakge
 "syntax enable
 syntax on
 
@@ -8,13 +8,13 @@ set ignorecase
 
 set tabstop=2
 set softtabstop=2
-
+set shiftwidth=2
 set expandtab
+filetype plugin indent on
 
 " newly added 
-set shiftwidth=2
-set autoindent
-set smartindent
-set autoindent
+"set autoindent
+"set smartindent
+"set autoindent
 
-filetype indent on
+"filetype indent on
