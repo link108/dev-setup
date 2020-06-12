@@ -1,0 +1,41 @@
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+
+# General
+brew "go"
+brew "git" # Get a more up to date version of git than default on macOS
+brew "vault"
+brew "consul-template"
+brew "nvm"  # Node Version Manager
+brew "jq"
+brew "wget"
+#brew "zsh"
+brew "mas"
+brew "emacs"
+
+# Cloud
+brew "awscli"
+brew "aws-iam-authenticator"
+cask "google-cloud-sdk"
+
+# Kubernetes / Containers
+brew "kubectl"
+brew "hyperkit"
+cask "docker"
+
+# User applications
+cask "1password"
+cask "adoptopenjdk8"
+cask "adoptopenjdk11"
+cask "firefox-developer-edition"
+#cask "google-chrome"
+#cask "intellij-idea-ce"
+#cask "goland"
+cask "bitbar"
+cask "slack"
+cask "discord"
+cask "iterm2"
+cask "postman"
+#cask "pocket"
+cask "sublime-text"
+cask "alfred"
