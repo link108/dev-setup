@@ -1,2 +1,15 @@
+# zsh 
 .zcompdump
 .zsh_history
+
+# emacs
+elpa/
+auto-save-list/
+meghanada/
+url/
+*~  
+init.el.bak
+abbrev_defs
+smex-items
+projectile.cache
+projectile-bookmarks.eld
