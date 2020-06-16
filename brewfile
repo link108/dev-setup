@@ -12,6 +12,7 @@ brew "wget"
 #brew "zsh"
 brew "mas"
 brew "emacs"
+brew "tree"
 
 # Cloud
 brew "awscli"
