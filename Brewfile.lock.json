@@ -328,6 +328,36 @@
         "options": {
           "full_name": "alfred"
         }
+      },
+      "dash": {
+        "version": "5.1.6",
+        "options": {
+          "full_name": "dash"
+        }
+      },
+      "cloudapp": {
+        "version": "6.1.2.2002",
+        "options": {
+          "full_name": "cloudapp"
+        }
+      },
+      "zoomus": {
+        "version": "5.0.26223.0603",
+        "options": {
+          "full_name": "zoomus"
+        }
+      },
+      "visual-studio-code": {
+        "version": "1.46.0",
+        "options": {
+          "full_name": "visual-studio-code"
+        }
+      },
+      "atom": {
+        "version": "1.48.0",
+        "options": {
+          "full_name": "atom"
+        }
       }
     }
   },
