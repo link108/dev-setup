@@ -1,12 +1,12 @@
 #! /bin/zsh
 
+# install programs
+./install
 
-# TODO find out why this isn't working in brewfile
-echo "brew tap adoptopenjdk"
-brew tap AdoptOpenJDK/openjdk
+# copy config files to correct locations
+./copy
 
-echo "Brew install things"
-brew bundle
 
-mas install 568494494 # Pocket
+# create directory structure 
+./clone-repos
 

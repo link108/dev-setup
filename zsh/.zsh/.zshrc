@@ -42,6 +42,9 @@ select-word-style bash
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/cmotevasselani/.zshrc'
 
+
+# insecure directories fix:
+# https://stackoverflow.com/questions/13762280/zsh-compinit-insecure-directories
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
@@ -68,8 +71,10 @@ precmd () {
     vcs_info
 }
 
+# TODO add this as part of setup script
+# https://docs.brew.sh/Shell-Completion
 # ZSH-Completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+# fpath=(/usr/local/share/zsh-completions $fpath)
 #MOVED export PATH=$HOME/bin:$PATH
 
 # NVM
@@ -78,7 +83,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 ## OLD
 #source "/usr/local/opt/nvm/nvm.sh"
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+source $(brew --prefix nvm)/nvm.sh
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Aliases
@@ -127,10 +133,12 @@ complete -o default -F __start_kubectl k
 
 
 
+# TODO add these as part of setup
 # Source scripts
-source /Users/cmotevasselani/personal/git_repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+#source /Users/cmotevasselani/personal/git_repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+# TODO determine if sdkman is the right way to go, currently using brew to download different jdks
+#source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 
 #bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -169,10 +177,12 @@ alias kill_halyard="kill $(ps -ef | grep halyard | grep -v grep | head -1 | awk 
 complete -C /Users/cmotevasselani/bin/vault vault
 
 
+# TOOD rbenv vs rvm?
 # rbenv init
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
-. /usr/local/etc/profile.d/z.sh
+# TODO is this useful? haven't been using it
+# . /usr/local/etc/profile.d/z.sh
 
 tail_pods() {
   if (( # != 2 )); then

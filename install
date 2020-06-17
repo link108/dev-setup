@@ -1,0 +1,12 @@
+#! /bin/zsh
+
+
+# TODO find out why this isn't working in brewfile
+echo "brew tap adoptopenjdk"
+brew tap AdoptOpenJDK/openjdk
+
+echo "Brew install things"
+brew bundle
+
+echo "mas install things"
+mas install 568494494 # Pocket

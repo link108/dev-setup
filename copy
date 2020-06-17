@@ -1,0 +1,12 @@
+#! /bin/zsh
+
+
+directories=(zsh git vim emacs)
+
+echo "directories: $directories"
+
+# https://unix.stackexchange.com/a/89771
+for i in $directories; do 
+  echo "Copying: $i"
+  cp -R $i/*(D) ~
+done

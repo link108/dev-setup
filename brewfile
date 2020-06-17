@@ -13,6 +13,12 @@ brew "wget"
 brew "mas"
 brew "emacs"
 brew "tree"
+brew "netcat"
+brew "nvm"
+brew "zsh-completions"
+
+# services
+brew "redis"
 
 # Cloud
 brew "awscli"

@@ -1,0 +1,9 @@
+#
+# When running, compaudit command is not found for some reason, so have to run these steps manually
+# TODO: automate this
+#
+
+#! /bin/zsh
+
+compaudit | xargs chown -R "$(whoami)"
+compaudit | xargs chmod go-w
