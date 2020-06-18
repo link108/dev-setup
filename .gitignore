@@ -13,3 +13,6 @@ abbrev_defs
 smex-items
 projectile.cache
 projectile-bookmarks.eld
+
+# python
+env/
