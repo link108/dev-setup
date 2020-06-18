@@ -135,8 +135,8 @@ complete -o default -F __start_kubectl k
 
 # TODO add these as part of setup
 # Source scripts
-#source /Users/cmotevasselani/personal/git_repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # TODO determine if sdkman is the right way to go, currently using brew to download different jdks
 #source "$HOME/.sdkman/bin/sdkman-init.sh"
 

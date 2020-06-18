@@ -16,6 +16,9 @@ brew "tree"
 brew "netcat"
 brew "nvm"
 brew "zsh-completions"
+brew "ack"
+brew "zsh-syntax-highlighting"
+brew "zsh-history-substring-search"
 
 # services
 brew "redis"
