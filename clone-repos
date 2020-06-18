@@ -1,1 +1,23 @@
 #! /bin/zsh
+
+
+# TODO make this handle upstreams and forks
+# assume dl-this file contains lines of the following format:
+# <git-org>:<git-repo>
+
+git_root=~/git-repos
+echo "git-root: $git_root"
+mkdir $git_root
+
+for i in $(cat dl-this); do
+  git_org=$(echo $i | sed -E 's/(.*):(.*)/\1/')
+  git_repo=$(echo $i | sed -E 's/(.*):(.*)/\2/')
+  echo "git org: $git_org, git repo: $git_repo"
+  echo "git url: git@github.com:$git_org/$git_repo.git"
+  cd $git_root
+  mkdir -p $git_org
+  cd $git_root/$git_org
+  git clone git@github.com:$git_org/$git_repo.git
+done
+
+

@@ -8,6 +8,7 @@ brew "vault"
 brew "consul-template"
 brew "nvm"  # Node Version Manager
 brew "jq"
+brew "yq"
 brew "wget"
 #brew "zsh"
 brew "mas"
@@ -19,6 +20,7 @@ brew "zsh-completions"
 brew "ack"
 brew "zsh-syntax-highlighting"
 brew "zsh-history-substring-search"
+brew "watch"
 
 # services
 brew "redis"
