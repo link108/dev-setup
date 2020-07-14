@@ -49,9 +49,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Use Java8
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home
-
 
 # VC Info
 autoload -Uz vcs_info

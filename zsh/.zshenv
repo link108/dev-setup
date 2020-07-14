@@ -43,3 +43,6 @@ export VAULT_ADDR='http://vault.engineering.armory.io:8200'
 # Groovy location
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export VAULT_ADDR=https://vault.engineering.armory.io
+
+# Java location, default to jdk 11
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
