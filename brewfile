@@ -2,6 +2,9 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 
+
+cask "osxfuse"
+
 # General
 brew "go"
 brew "git" # Get a more up to date version of git than default on macOS
@@ -25,6 +28,8 @@ brew "watch"
 brew "jfrog-cli-go"
 brew "rbenv"
 brew "ruby-build"
+brew "datawire/blackbird/telepresence"
+brew "yarn"
 
 # services
 brew "redis"
@@ -64,3 +69,4 @@ cask "epic-games"
 cask "steam"
 cask "docker"
 cask "spotify"
+cask "dynalist"
