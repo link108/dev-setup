@@ -31,6 +31,8 @@ brew "ruby-build"
 brew "datawire/blackbird/telepresence"
 brew "yarn"
 brew "telnet"
+brew "groovysdk"
+brew "neovim"
 
 # services
 brew "redis"
