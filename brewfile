@@ -1,3 +1,5 @@
+
+tap "AdoptOpenJDK/openjdk"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
@@ -33,6 +35,8 @@ brew "yarn"
 brew "telnet"
 brew "groovysdk"
 brew "neovim"
+brew "jsonnet"
+brew "gnupg"
 
 # services
 brew "redis"
@@ -49,7 +53,7 @@ cask "docker"
 
 # User applications
 cask "1password"
-cask "adoptopenjdk8"
+cask "adoptopenjdk/openjdk/adoptopenjdk8"
 cask "adoptopenjdk11"
 cask "firefox-developer-edition"
 #cask "google-chrome"
