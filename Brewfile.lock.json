@@ -2,10 +2,10 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "42da7456933699580f7a8f836a44741959dfa7fb"
+        "revision": "5bff6fef1f4e5b4baa92e0ba7231a78b4109d403"
       },
       "homebrew/cask-versions": {
-        "revision": "22bfd7b8a85478006cf5fdadd1b4d7e0ab14d839"
+        "revision": "ae876f3a0ff49c525826bc1fd52a84e863e2cde0"
       },
       "homebrew/services": {
         "revision": "cddcf1f998b34023b40203a32d8556892e29ed87"
@@ -157,6 +157,18 @@
         "version": "8,265:b01",
         "options": {
           "full_name": "adoptopenjdk/openjdk/adoptopenjdk8"
+        }
+      },
+      "kitty": {
+        "version": "0.18.3",
+        "options": {
+          "full_name": "kitty"
+        }
+      },
+      "alacritty": {
+        "version": "0.5.0",
+        "options": {
+          "full_name": "alacritty"
         }
       }
     },
@@ -569,22 +581,22 @@
         }
       },
       "gnupg": {
-        "version": "2.2.22",
+        "version": "2.2.23",
         "bottle": {
           "cellar": "/usr/local/Cellar",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.22.catalina.bottle.tar.gz",
-              "sha256": "1b00809e7f0e197771c70a3d7ca6306b9ff236b2651aa1e92da1e09f6fd8c2a9"
+              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.23.catalina.bottle.tar.gz",
+              "sha256": "f3d7b9b1b344cf3aa2108756d922d1b48214a46b569ae737c604b22f4001b640"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.22.mojave.bottle.tar.gz",
-              "sha256": "6b0855d5088f9921d2ae1a87b996214ffba8f9bf0bf467dfe2343dd390013cb5"
+              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.23.mojave.bottle.tar.gz",
+              "sha256": "1587039c4678d1c500fe8a3ba6d25f8070828bbe2159fc9fd12cad534b09dd9a"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.22.high_sierra.bottle.tar.gz",
-              "sha256": "9ef79b1ffc23456648d6714566fe5ac0cb2388b9f3dc10ee8f1811a74a475a75"
+              "url": "https://homebrew.bintray.com/bottles/gnupg-2.2.23.high_sierra.bottle.tar.gz",
+              "sha256": "87b3d4b162e860382a2f5ab4ed468f324a389fca4cfddc5363e544f3ca370125"
             }
           }
         }
@@ -673,6 +685,98 @@
             }
           }
         }
+      },
+      "openvpn": {
+        "version": "2.4.9",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/openvpn-2.4.9.catalina.bottle.tar.gz",
+              "sha256": "b4d2c905d810562fc11e83c226ed8572386482f1e856e0f8de3e5ff63ee00526"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/openvpn-2.4.9.mojave.bottle.tar.gz",
+              "sha256": "315e55c0f3b2cdbf4c3e8545c98702e1c4eeff20bc37dbf89921389494b3ef54"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/openvpn-2.4.9.high_sierra.bottle.tar.gz",
+              "sha256": "bb3ce3b1fbbdf51cf5a207d00a1f60d22eb9b98096595fb81c563dffac077c0f"
+            }
+          }
+        }
+      },
+      "gh": {
+        "version": "0.11.1",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/gh-0.11.1.catalina.bottle.tar.gz",
+              "sha256": "8c407d1a98c582f12b7830c854b1c29e706a4215b5d5fae94cdf85b1929a9dfe"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/gh-0.11.1.mojave.bottle.tar.gz",
+              "sha256": "d758ddf6c6e240b09cb2133a35b4c05cf78c722d1e54f40622485628a6d544ac"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/gh-0.11.1.high_sierra.bottle.tar.gz",
+              "sha256": "9f65a309f159a2bed8f7b4d737aa01b4b4f7037cf79f8b112db4f04ac38a3666"
+            }
+          }
+        }
+      },
+      "hugo": {
+        "version": "0.74.3",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/hugo-0.74.3.catalina.bottle.tar.gz",
+              "sha256": "fc5d75aa5e6a660a21630f5d9cfd2a57f4e34de7e2511de32ab8026e4a186f18"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/hugo-0.74.3.mojave.bottle.tar.gz",
+              "sha256": "85eb7c91a8d69308610a0538e051abcb3eb8c2eb3ea9b50b746b9c9073917510"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/hugo-0.74.3.high_sierra.bottle.tar.gz",
+              "sha256": "fdfe31a63aff00c2d866b045796871c214c297b2276b75afffa8812f37a6a4c4"
+            }
+          }
+        }
+      },
+      "fontconfig": {
+        "version": "2.13.1",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/fontconfig-2.13.1.catalina.bottle.tar.gz",
+              "sha256": "64ff208b28613dfe2a65b9d74fd9b0129f3ca7e423db78329144cdaf51b36f70"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/fontconfig-2.13.1.mojave.bottle.tar.gz",
+              "sha256": "1c704a5a4249252bf42dc4f2a458f911a7858a931858ad257d9ec39978ca5095"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/fontconfig-2.13.1.high_sierra.bottle.tar.gz",
+              "sha256": "3b763143a4d6e3c74b3a8b237d2e5a383696347ea3599d07957f73a3f6521d23"
+            },
+            "sierra": {
+              "url": "https://homebrew.bintray.com/bottles/fontconfig-2.13.1.sierra.bottle.tar.gz",
+              "sha256": "631531c4eb502bd97e4a5bef30760d1eef87dd50306ef2defb9460ac3338cfe1"
+            },
+            "el_capitan": {
+              "url": "https://homebrew.bintray.com/bottles/fontconfig-2.13.1.el_capitan.bottle.tar.gz",
+              "sha256": "40d70137a970e257de5cf1251b10d56d7db835faee88a9f4c020b4a4e4f82eb1"
+            }
+          }
+        }
       }
     }
   },
@@ -681,7 +785,7 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.4.16",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "788d243946f3ac0bea3db62369bcdcc147413f08",
+        "Homebrew/homebrew-core": "6d67091ca8e5ceb2b2e0536ffa51bab476875812",
         "CLT": "1103.0.32.62",
         "Xcode": "11.5",
         "macOS": "10.15.6"

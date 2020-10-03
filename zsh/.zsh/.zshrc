@@ -49,6 +49,11 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+if [[ $TERM == "xterm-kitty" ]]
+then
+  kitty + complete setup zsh | source /dev/stdin
+fi
+
 
 # VC Info
 autoload -Uz vcs_info
