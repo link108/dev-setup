@@ -1,6 +1,10 @@
 
 
 
+# cloud sdk for ssh'ing to jenkins
+# TODO remove when able to
+export CLOUDSDK_PYTHON=python2
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 

@@ -5,3 +5,5 @@ brew bundle
 
 echo "mas install things"
 mas install 568494494 # Pocket
+
+
