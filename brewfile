@@ -87,6 +87,7 @@ cask "dynalist"
 cask "arduino"
 
 cask "vlc"
+cask "boop"
 
 cask "processing"
 cask "iterm2"
