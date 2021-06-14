@@ -215,6 +215,12 @@
         "options": {
           "full_name": "boop"
         }
+      },
+      "graphiql": {
+        "version": "0.7.2",
+        "options": {
+          "full_name": "graphiql"
+        }
       }
     },
     "brew": {
@@ -1128,9 +1134,9 @@
         "HOMEBREW_VERSION": "3.0.1",
         "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "2ad917ea314672b6691070620c34665a45c6e78e",
-        "CLT": "",
-        "Xcode": "",
-        "macOS": "11.2.2"
+        "CLT": "1205.0.22.9",
+        "Xcode": "12.0",
+        "macOS": "11.3.1"
       }
     }
   }

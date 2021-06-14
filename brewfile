@@ -85,6 +85,7 @@ cask "docker"
 cask "spotify"
 cask "dynalist"
 cask "arduino"
+cask "graphiql"
 
 cask "vlc"
 cask "boop"
