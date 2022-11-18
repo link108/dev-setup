@@ -46,6 +46,7 @@ brew "ripgrep"
 brew "saml2aws"
 # services
 brew "redis"
+brew "act"
 
 # Cloud
 brew "awscli"
@@ -86,11 +87,14 @@ cask "spotify"
 cask "dynalist"
 cask "arduino"
 cask "graphiql"
+cask "sequel-pro"
 
 cask "vlc"
 cask "boop"
+cask "stats"
 
 cask "processing"
 cask "iterm2"
 cask "kitty"
 #cask "alacritty"
+
