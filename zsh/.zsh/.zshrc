@@ -1,9 +1,8 @@
 
 
-#Prompt
-autoload -Uz promptinit
-promptinit
-
+autoload -Uz +X promptinit && promptinit
+autoload -Uz +X bashcompinit && bashcompinit
+autoload -Uz +X compinit && compinit
 
 #Right hand side of prompt
 #RPROMPT=$'%.%'
@@ -42,12 +41,6 @@ select-word-style bash
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/cmotevasselani/.zshrc'
 
-
-# insecure directories fix:
-# https://stackoverflow.com/questions/13762280/zsh-compinit-insecure-directories
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
 
 if [[ $TERM == "xterm-kitty" ]]
 then
@@ -111,27 +104,9 @@ alias less='less -R'
 # TODO Git aliases
 #cool log/graph: log --pretty=oneline -n 20 --graph --abbrev-commit
 
-
-
-
 # Kubectl functions/aliases
-function k() {
-  if [[ ! -z "$KUBERNETES_NAMESPACE"  ]]
-  then
-    kubectl -n "$KUBERNETES_NAMESPACE" $@
-  else
-    kubectl $@
-  fi
-}
-alias kcc='k config current-context'
-alias kgc='k config get-contexts'
-alias kuc='k config use-context '
-
-## Could not get kubectl completion working with `k`
+alias k='kubectl'
 source <(kubectl completion zsh)
-complete -o default -F __start_kubectl k
-
-#source <(k completion zsh | sed 's/kubectl/k/g')
 
 
 
@@ -174,10 +149,7 @@ alias start_armory_docker='docker run --name armory-halyard --rm \
 
 alias kill_halyard="kill $(ps -ef | grep halyard | grep -v grep | head -1 | awk '{print $2}')"
 
-
-
-complete -C /Users/cmotevasselani/bin/vault vault
-
+complete -C /usr/local/bin/vault vault
 
 # TOOD rbenv vs rvm?
 # rbenv init
