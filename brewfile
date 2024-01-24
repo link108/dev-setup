@@ -1,8 +1,10 @@
 
-tap "homebrew/cask"
+#tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "versent/homebrew-taps"
+tap "mongodb/brew"
+tap "bufbuild/buf"
 
 
 cask "macfuse"
@@ -63,6 +65,7 @@ cask "docker"
 # User applications
 cask "1password"
 brew "java"
+brew "maven"
 brew "openjdk@11"
 brew "openjdk@17"
 cask "firefox-developer-edition"
@@ -82,12 +85,9 @@ cask "dash6"
 cask "zoom"
 cask "visual-studio-code"
 cask "epic-games"
-cask "steam"
 cask "docker"
 cask "spotify"
 cask "arduino"
-cask "graphiql"
-cask "sequel-pro"
 cask "tunnelblick"
 
 cask "vlc"
@@ -104,3 +104,17 @@ brew "jupyterlab"
 
 brew "openvpn"
 cask "openvpn-connect"
+brew "postgresql"
+brew "liquibase"
+
+# Databases
+cask "graphiql"
+cask "dbeaver-community"
+brew "duckdb"
+brew "mongodb-community"
+cask "mongodb-compass"
+
+
+brew "buf"
+brew "bazelisk"
+brew "clang-format"
