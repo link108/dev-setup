@@ -113,6 +113,7 @@ cask "dbeaver-community"
 brew "duckdb"
 brew "mongodb-community"
 cask "mongodb-compass"
+cask "pgadmin4"
 
 
 brew "buf"
