@@ -5,6 +5,7 @@ tap "homebrew/services"
 tap "versent/homebrew-taps"
 tap "mongodb/brew"
 tap "bufbuild/buf"
+tap "qmk/qmk"
 
 
 cask "macfuse"
@@ -119,3 +120,8 @@ cask "pgadmin4"
 brew "buf"
 brew "bazelisk"
 brew "clang-format"
+
+brew 'pkg-config'
+brew 'avr-gcc'
+brew 'qmk/qmk/qmk'
+cask 'qmk-toolbox'
