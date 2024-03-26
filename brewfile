@@ -61,7 +61,7 @@ brew "aws-iam-authenticator"
 # Kubernetes / Containers
 brew "kubectl"
 brew "k9s"
-cask "docker"
+#cask "docker"
 
 # User applications
 cask "1password"
@@ -77,7 +77,7 @@ cask "pycharm"
 cask "webstorm"
 cask "goland"
 cask "bitbar"
-cask "slack"
+#cask "slack"
 cask "discord"
 cask "postman"
 cask "sublime-text"
@@ -85,8 +85,6 @@ cask "alfred"
 cask "dash6"
 cask "zoom"
 cask "visual-studio-code"
-cask "epic-games"
-cask "docker"
 cask "spotify"
 cask "arduino"
 cask "tunnelblick"
@@ -125,3 +123,5 @@ brew 'pkg-config'
 brew 'avr-gcc'
 brew 'qmk/qmk/qmk'
 cask 'qmk-toolbox'
+
+cask 'rancher'
