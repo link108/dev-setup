@@ -7,11 +7,6 @@ tap "mongodb/brew"
 tap "bufbuild/buf"
 tap "qmk/qmk"
 
-tap "qmk/qmk"
-
-brew "qmk/qmk/qmk"
-
-
 cask "macfuse"
 
 # General
