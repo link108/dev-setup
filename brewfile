@@ -23,9 +23,9 @@ brew "emacs"
 brew "tree"
 brew "netcat"
 brew "zsh-completions"
-brew "ack"
 brew "zsh-syntax-highlighting"
 brew "zsh-history-substring-search"
+brew "ack"
 brew "watch"
 brew "jfrog-cli-go"
 brew "rbenv"
@@ -122,9 +122,9 @@ brew 'pkg-config'
 brew 'avr-gcc'
 brew 'qmk/qmk/qmk'
 cask 'qmk-toolbox'
+cask 'via'
 
 cask 'rancher'
 brew 'gotestsum'
-
-
 brew 'go-task'
+brew 'pylint'
