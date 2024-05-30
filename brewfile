@@ -124,3 +124,7 @@ brew 'qmk/qmk/qmk'
 cask 'qmk-toolbox'
 
 cask 'rancher'
+brew 'gotestsum'
+
+
+brew 'go-task'
