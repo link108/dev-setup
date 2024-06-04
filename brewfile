@@ -123,9 +123,14 @@ brew 'pkg-config'
 brew 'avr-gcc'
 brew 'qmk/qmk/qmk'
 cask 'qmk-toolbox'
-cask 'via'
+#cask 'via'
 
 cask 'rancher'
 brew 'gotestsum'
 brew 'go-task'
 brew 'pylint'
+
+
+brew 'grafana'
+brew 'prometheus'
+
