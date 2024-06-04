@@ -10,6 +10,7 @@ tap "qmk/qmk"
 cask "macfuse"
 
 # General
+brew "tmux
 brew "go"
 brew "git" # Get a more up to date version of git than default on macOS
 brew "vault"
