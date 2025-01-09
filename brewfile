@@ -44,6 +44,7 @@ brew "fontconfig"
 brew "bat"
 brew "ripgrep"
 brew "saml2aws"
+cask "ngrok"
 
 # services
 brew "redis"
@@ -52,6 +53,7 @@ brew "act"
 # Cloud
 brew "awscli"
 brew "aws-iam-authenticator"
+cask "google-cloud-sdk"
 
 #################
 # This is used, but commented out, since it unnecessarily continues to re-install and fails to find python
@@ -80,6 +82,7 @@ cask "bitbar"
 #cask "slack"
 cask "discord"
 cask "postman"
+cask "bruno"
 cask "sublime-text"
 cask "alfred"
 cask "dash6"
@@ -133,4 +136,9 @@ brew 'pylint'
 
 brew 'grafana'
 brew 'prometheus'
+brew 'gptscript'
+
+cask 'db-browser-for-sqlite'
+
+brew 'rustup'
 
