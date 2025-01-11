@@ -1,0 +1,38 @@
+# Ghostty Configuration File
+
+
+# Theme
+theme = homebrew
+
+# Text Management
+keybind = cmd+shift+minus=unbind
+keybind = cmd+shift+minus=decrease_font_size:1
+
+# Window Management
+
+# Create new horizontal split (down)
+keybind = cmd+minus=new_split:down
+
+# Create new vertical split (right)
+keybind = cmd+\=new_split:right
+
+
+keybind = cmd+shift+\=unbind
+keybind = cmd+shift+\=equalize_splits
+
+# Move focus between splits
+keybind = cmd+h=unbind
+keybind = cmd+k=unbind
+keybind = cmd+j=unbind
+
+keybind = cmd+h=goto_split:left
+keybind = cmd+l=goto_split:right
+keybind = cmd+k=goto_split:top
+keybind = cmd+j=goto_split:bottom
+
+# Resize splits
+keybind = cmd+shift+h=resize_split:left,10
+keybind = cmd+shift+l=resize_split:right,10
+keybind = cmd+shift+j=resize_split:down,10
+keybind = cmd+shift+k=resize_split:up,10
+
