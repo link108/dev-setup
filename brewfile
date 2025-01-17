@@ -46,6 +46,9 @@ brew "ripgrep"
 brew "saml2aws"
 cask "ngrok"
 brew "nmap"
+brew "kustomize"
+brew "graphviz"
+brew "mise"
 
 # services
 brew "redis"
@@ -94,6 +97,14 @@ cask "visual-studio-code"
 cask "spotify"
 cask "arduino"
 cask "tunnelblick"
+brew "openssl@3"
+brew "libyaml" 
+brew "gmp" 
+brew "rust"
+
+
+
+
 
 cask "vlc"
 cask "boop"

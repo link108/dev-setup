@@ -4,8 +4,9 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("map s <Nop>")
 
+local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
+vim.keymap.set("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- vim.cmd("let g:tmux_navigator_no_mappings = 1")
@@ -23,7 +24,7 @@ vim.g.mapleader = " "
 -- vim.cmd("nnoremap <M-k> :wincmd k<cr>")
 -- vim.cmd("nnoremap <M-l> :wincmd l<cr>")
 
-vim.keymap.set('n', '<M-h>', ':wincmd h<CR>')
+-- vim.keymap.set('n', '<M-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<M-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<M-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<M-l>', ':wincmd l<CR>')
@@ -31,4 +32,8 @@ vim.keymap.set('n', '<M-l>', ':wincmd l<CR>')
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 
 
+vim.keymap.set('n', '<M-h>', '<cmd>echo "Example 1"<cr>')
 
+
+vim.keymap.set('n', '<M-->', ':vsplit<CR>')
+vim.keymap.set('n', '<M-\\>', ':split<CR>')
