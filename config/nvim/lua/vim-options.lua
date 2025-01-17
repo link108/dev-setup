@@ -24,13 +24,12 @@ vim.g.mapleader = " "
 -- vim.cmd("nnoremap <M-k> :wincmd k<cr>")
 -- vim.cmd("nnoremap <M-l> :wincmd l<cr>")
 
--- vim.keymap.set('n', '<M-h>', ':wincmd h<CR>')
+vim.keymap.set('n', '<M-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<M-j>', ':wincmd j<CR>')
 vim.keymap.set('n', '<M-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<M-l>', ':wincmd l<CR>')
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 
-
-vim.keymap.set('n', '<M-->', ':vsplit<CR>')
-vim.keymap.set('n', '<M-\\>', ':split<CR>')
+vim.keymap.set('n', '<M-->', ':split<CR>')
+vim.keymap.set('n', '<M-\\>', ':vsplit<CR>')
