@@ -32,8 +32,5 @@ vim.keymap.set('n', '<M-l>', ':wincmd l<CR>')
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 
 
-vim.keymap.set('n', '<M-h>', '<cmd>echo "Example 1"<cr>')
-
-
 vim.keymap.set('n', '<M-->', ':vsplit<CR>')
 vim.keymap.set('n', '<M-\\>', ':split<CR>')
