@@ -49,6 +49,7 @@ brew "nmap"
 brew "kustomize"
 brew "graphviz"
 brew "mise"
+brew "zig"
 
 # services
 brew "redis"
