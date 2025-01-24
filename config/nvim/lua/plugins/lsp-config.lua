@@ -14,6 +14,7 @@ return {
 		},
 	},
 	{
+    -- Language specific changes
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()

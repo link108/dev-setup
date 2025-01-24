@@ -4,6 +4,7 @@ return {
 		"nvimtools/none-ls-extras.nvim",
 	},
 	config = function()
+    -- Language specific changes
 		local null_ls = require("null-ls")
 
 		null_ls.setup({

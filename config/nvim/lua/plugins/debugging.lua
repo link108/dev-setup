@@ -8,6 +8,8 @@ return {
   },
 
   config = function()
+    -- Language specific changes
+    -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
     local dap = require("dap")
     local dapui = require("dapui")
     local dappython = require("dap-python")

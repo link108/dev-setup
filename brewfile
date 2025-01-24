@@ -50,6 +50,7 @@ brew "kustomize"
 brew "graphviz"
 brew "mise"
 brew "zig"
+brew "delve"
 
 # services
 brew "redis"
