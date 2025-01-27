@@ -6,6 +6,10 @@ vim.cmd("map s <Nop>")
 
 local opts = { noremap = true, silent = true }
 
+
+vim.opt.number = true
+
+
 vim.keymap.set("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 

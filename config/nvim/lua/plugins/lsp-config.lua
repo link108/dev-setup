@@ -10,7 +10,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		opts = {
-     ensure_installed = {"lua_ls", "clangd", "elixirls", "pyright", "ruby_lsp", "tsserver", "gopls", "marksman", "arduino_language_server"},
+     ensure_installed = {"lua_ls", "clangd", "elixirls", "pyright", "ruby_lsp", "tsserver", "gopls", "marksman", "arduino_language_server", "html", "cssls", "eslint"},
 		},
 	},
 	{
@@ -67,6 +67,30 @@ return {
       lspconfig.glslls.setup({
 				capabilities = capabilities,
 			})
+
+      -- arduino
+      lspconfig.arduino_language_server.setup({
+        capabilities = capabilities,
+      })
+
+      -- html
+			local htmlcapabilities = require("cmp_nvim_lsp").default_capabilities()
+      htmlcapabilities.textDocument.completion.completionItem.snippetSupport = true
+      lspconfig.html.setup({
+        capabilities = htmlcapabilities,
+      })
+
+      -- css
+      lspconfig.cssls.setup({
+        capabilities = capabilities,
+      })
+
+      -- eslint
+      lspconfig.eslint.setup({
+        capabilities = capabilities,
+      })
+
+
 
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
