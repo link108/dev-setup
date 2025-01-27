@@ -10,7 +10,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		opts = {
-     ensure_installed = {"lua_ls", "clangd", "elixirls", "pyright", "ruby_lsp", "ts_ls", "gopls", "marksman", "glslls"},
+     ensure_installed = {"lua_ls", "clangd", "elixirls", "pyright", "ruby_lsp", "tsserver", "gopls", "marksman", "arduino_language_server"},
 		},
 	},
 	{
@@ -62,6 +62,7 @@ return {
 				capabilities = capabilities,
 			})
 
+      -- TODO fix this
       -- glsl
       lspconfig.glslls.setup({
 				capabilities = capabilities,
