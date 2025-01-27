@@ -10,6 +10,9 @@ return {
 		null_ls.setup({
 			sources = {
 
+        -- golang
+        null_ls.builtins.diagnostics.golangci_lint,
+
         -- lua
 				null_ls.builtins.formatting.stylua,
 

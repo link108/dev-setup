@@ -5,6 +5,7 @@ return {
     "rcarriga/nvim-dap-ui",
     "leoluz/nvim-dap-go",
     "mfussenegger/nvim-dap-python",
+    "suketa/nvim-dap-ruby",
   },
 
   config = function()
@@ -14,11 +15,14 @@ return {
     local dapui = require("dapui")
     local dappython = require("dap-python")
     local dapgo = require("dap-go")
+    local dapruby = require("dap-ruby")
 
+    dapruby.setup()
     dapui.setup()
     dapgo.setup()
     dappython.setup("~/.virtualenvs/debugpy/bin/python")
 
+    -- Setup listeners
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()
     end
