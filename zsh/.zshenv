@@ -20,7 +20,7 @@ export GO111MODULE=on
 
 
 # ZSH
-export ZDOTDIR=.zsh
+export ZDOTDIR=~/.zsh
 
 
 # PATH

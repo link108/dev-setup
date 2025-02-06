@@ -51,6 +51,8 @@ brew "graphviz"
 brew "mise"
 brew "zig"
 brew "delve"
+brew "pyenv"
+
 
 # services
 brew "redis"
