@@ -6,6 +6,8 @@ tap "versent/homebrew-taps"
 tap "mongodb/brew"
 tap "bufbuild/buf"
 tap "qmk/qmk"
+tap "mongodb/brew"
+
 
 cask "macfuse"
 
@@ -136,6 +138,10 @@ brew "duckdb"
 brew "mongodb-community"
 cask "mongodb-compass"
 cask "pgadmin4"
+brew "mongodb-atlas-cli"
+brew "mongosh"
+brew "mongodb-database-tools"
+
 
 
 brew "buf"
