@@ -55,6 +55,8 @@ brew "zig"
 brew "delve"
 brew "pyenv"
 
+cask "nikitabobko/tap/aerospace"
+
 
 # services
 brew "redis"
