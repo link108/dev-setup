@@ -44,23 +44,33 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
 
-
 [[on-window-detected]]
 if.app-name-regex-substring = 'spotify'
-run = ['move-node-to-workspace 3']
+run = ['move-node-to-workspace S']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'slack'
+run = ['move-node-to-workspace s']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'discord'
+run = ['move-node-to-workspace D']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'bruno'
-run = ['move-node-to-workspace 2']
+run = ['move-node-to-workspace B']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'mongodb compass'
-run = ['move-node-to-workspace 2']
+run = ['move-node-to-workspace m']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'studio 3t'
-run = ['move-node-to-workspace 2']
+run = ['move-node-to-workspace m']
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'textedit'
+run = ['layout floating']
 
 
 # Possible values: (qwerty|dvorak)
