@@ -44,6 +44,9 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'firefox'
+run = ['move-node-to-workspace F']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'google chrome'
@@ -77,6 +80,30 @@ run = ['move-node-to-workspace m']
 if.app-name-regex-substring = 'textedit'
 run = ['layout floating']
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'zoom'
+run = ['move-node-to-workspace z']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'ghostty'
+run = ['move-node-to-workspace t']
+
+# IDEs
+[[on-window-detected]]
+if.app-name-regex-substring = 'goland'
+run = ['move-node-to-workspace g']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'pycharm'
+run = ['move-node-to-workspace p']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'intellij'
+run = ['move-node-to-workspace i']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'windsurf'
+run = ['move-node-to-workspace w']
 
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -152,10 +179,8 @@ run = ['layout floating']
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
 
-    cmd-enter = 'macos-native-fullscreen'
+    alt-shift-enter = 'macos-native-fullscreen'
     alt-enter = 'fullscreen'
-
-
 
 
     alt-1 = 'workspace 1'
@@ -171,7 +196,27 @@ run = ['layout floating']
     alt-i = 'exec-and-forget open -a /Applications/IntelliJ\ IDEA.app'
     alt-g = 'exec-and-forget open -a /Applications/GoLand.app'
     alt-c = 'exec-and-forget open -a /Applications/Google\ Chrome.app'
-    alt-shift-f = 'exec-and-forget open -a /Applications/Firefox\ Developer\ Edition.app'
+    alt-shift-f = 'exec-and-forget open -a /Applications/Firefox.app'
     alt-m = 'exec-and-forget open -a /Applications/MongoDB\ Compass.app'
     alt-shift-b = 'exec-and-forget open -a /Applications/Bruno.app'
     alt-n = 'exec-and-forget open -a TextEdit'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#mode
+    alt-shift-semicolon = 'mode service'
+
+# 'service' binding mode declaration.
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.service.binding]
+    esc = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main'] # reset layout
+    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+    # backspace = ['close-all-windows-but-current', 'mode main']
+
+    # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
+    #s = ['layout sticky tiling', 'mode main']
+
+    alt-shift-h = ['join-with left', 'mode main']
+    alt-shift-j = ['join-with down', 'mode main']
+    alt-shift-k = ['join-with up', 'mode main']
+    alt-shift-l = ['join-with right', 'mode main']
+
