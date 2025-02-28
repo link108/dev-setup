@@ -199,7 +199,9 @@ run = ['move-node-to-workspace w']
     alt-shift-f = 'exec-and-forget open -a /Applications/Firefox.app'
     alt-m = 'exec-and-forget open -a /Applications/MongoDB\ Compass.app'
     alt-shift-b = 'exec-and-forget open -a /Applications/Bruno.app'
+    alt-z = 'exec-and-forget open -a /Applications/zoom.us.app'
     alt-n = 'exec-and-forget open -a TextEdit'
+
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
