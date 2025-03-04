@@ -1,8 +1,135 @@
 # Ghostty Configuration File
 
 
-# Theme
-theme = homebrew
+# Themes
+
+# good
+# theme = RetroLegends
+# theme = Argonaut
+
+# theme = Oxocarbon
+theme = Hardcore
+# theme = Aurora
+# theme = Dracula
+# theme = duckbones
+# theme = Elementary
+# theme = Everblush
+# theme = flexoki-dark
+# theme = Galizur
+# theme = Glacier
+# theme = Grape
+# theme = Grey-green
+# theme = gruber-darker
+# theme = GruvboxDarkHard
+# theme = Guezwhoz
+# theme = Hipster Green
+# theme = Horizon
+# theme = Hurtado
+# theme = iTerm2 Solarized Dark
+# theme = JetBrains Darcula
+# theme = Kanagawa Wave
+# theme = kibble
+# theme = Konsolas
+# theme = Laser
+# theme = Mathias
+# theme = Molokai
+# theme = Monokai Classic
+# theme = Monokai Remastered
+# theme = neobones_dark
+# theme = Neon
+# theme = Nocturnal Winter
+# theme = Popping and Locking
+# theme = Seti
+# theme = Shaman
+# theme = Solarized Dark Higher Contrast
+# theme = Spacedust
+# theme = srcery
+# theme = synthwave
+# theme = Thayer Bright
+# theme = Tinacious Design (Dark)
+# theme = Treehouse
+# theme = UltraViolent
+# theme = UnderTheSea
+# theme = Urple
+# theme = VibrantInk
+# theme = WildCherry
+
+# ok
+# theme = homebrew
+# theme = shades-of-purple
+# theme = Abernathy
+# theme = Banana Blueberry
+# theme = Blue Matrix
+# theme = Bright Lights
+# theme = Brogrammer
+# theme = ENCOM
+# theme = Cobalt2
+# theme = Dark Pastel
+# theme = darkmatrix
+# theme = deep
+# theme = detuned
+# theme = Django
+# theme = electron-highlighter
+# theme = Elegant
+# theme = Elemental
+# theme = terafox
+# theme = farmhouse-dark
+# theme = Firefly Traditional
+# theme = Flat
+# theme = Flatland
+# theme = Floraverse
+# theme = Framer
+# theme = FunForrest
+# theme = Havn Skumring
+# theme = heeler
+# theme = Highway
+# theme = Hivacruz
+# theme = Hopscotch.256
+# theme = IC_Green_PPL
+# theme = iceberg-dark
+# theme = idea
+# theme = IR_Black
+# theme = FishTank
+# theme = iTerm2 Default
+# theme = iTerm2 Tango Dark
+# theme = Jackie Brown
+# theme = Japanesque
+# theme = kanagawabones
+# theme = Kolorit
+# theme = LiquidCarbonTransparent
+# theme = MaterialDark
+# theme = MaterialDesignColors
+# theme = matrix
+# theme = Medallion
+# theme = midnight-in-mojave
+# theme = Mirage
+# theme = MonaLisa
+# theme = Apple Classic
+# theme = Monokai Pro
+# theme = Monokai Vivid
+# theme = OceanicMaterial
+# theme = Ollie
+# theme = Pandora
+# theme = Peppermint
+# theme = Rapture
+# theme = rose-pine
+# theme = rose-pine-moon
+# theme = Sakura
+# theme = Scarlet Protocol
+# theme = SeaShells
+# theme = Smyck
+# theme = SynthwaveAlpha
+# theme = synthwave-everything
+# theme = tokyonight
+# theme = ToyChest
+# theme = Ubuntu
+# theme = Vesper
+# theme = Wez
+# theme = Wombat
+# theme = Wryan
+# theme = zenwritten_dark
+# theme = Cyberdyne
+
 
 # Text Management
 keybind = cmd+shift+minus=unbind
