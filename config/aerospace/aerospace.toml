@@ -191,6 +191,7 @@ run = ['move-node-to-workspace w']
     alt-shift-2 = 'move-node-to-workspace 2'
     alt-shift-3 = 'move-node-to-workspace 3'
     alt-shift-n = 'move-node-to-workspace n'
+    alt-shift-c = 'move-node-to-workspace c'
 
     alt-shift-d = 'exec-and-forget open -a /Applications/Discord.app'
     alt-s = 'exec-and-forget open -a /Applications/Slack.app'
