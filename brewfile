@@ -9,7 +9,7 @@ tap "qmk/qmk"
 tap "mongodb/brew"
 
 
-cask "macfuse"
+#cask "macfuse"
 
 # General
 brew "tmux"
@@ -75,7 +75,8 @@ cask "google-cloud-sdk"
 # Kubernetes / Containers
 brew "kubectl"
 brew "k9s"
-#cask "docker"
+cask "docker"
+#cask 'rancher'
 
 # User applications
 cask "1password"
@@ -152,11 +153,11 @@ brew "clang-format"
 
 brew 'pkg-config'
 brew 'avr-gcc'
+brew 'avro-c'
 brew 'qmk/qmk/qmk'
 cask 'qmk-toolbox'
 #cask 'via'
 
-cask 'rancher'
 brew 'gotestsum'
 brew 'go-task'
 brew 'pylint'
