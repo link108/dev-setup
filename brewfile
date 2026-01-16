@@ -133,6 +133,7 @@ brew "openvpn"
 cask "openvpn-connect"
 brew "postgresql"
 brew "liquibase"
+cask "prisma-studio"
 
 # Databases
 cask "graphiql"
@@ -169,5 +170,13 @@ brew 'gptscript'
 
 cask 'db-browser-for-sqlite'
 
+brew 'localstack'
+brew 'awscli-local'
 brew 'rustup'
+
+cask 'claude-code'
+cask 'codex'
+brew 'aws-cdk'
+
+brew 'tailscale'
 
