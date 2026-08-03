@@ -1,0 +1,184 @@
+
+##tap "homebrew/cask"
+#tap "homebrew/cask-versions"
+#tap "homebrew/services"
+#tap "versent/homebrew-taps"
+#tap "mongodb/brew"
+#tap "bufbuild/buf"
+#tap "qmk/qmk"
+#tap "mongodb/brew"
+
+
+##cask "macfuse"
+
+## General
+brew "tmux"
+brew "go"
+brew "git" # Get a more up to date version of git than default on macOS
+#brew "vault"
+#brew "consul-template"
+brew "jq"
+brew "yq"
+brew "wget"
+#brew "mas"
+brew "emacs"
+brew "tree"
+#brew "netcat"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+brew "zsh-history-substring-search"
+brew "ack"
+brew "watch"
+#brew "jfrog-cli-go"
+#brew "rbenv"
+#brew "ruby-build"
+#brew "datawire/blackbird/telepresence"
+brew "yarn"
+brew "telnet"
+#brew "groovysdk"
+brew "neovim"
+#brew "jsonnet"
+#brew "gnupg"
+brew "gh"
+#brew "hugo"
+#brew "fontconfig"
+#brew "bat"
+brew "ripgrep"
+#brew "saml2aws"
+cask "ngrok"
+brew "nmap"
+#brew "kustomize"
+#brew "graphviz"
+brew "mise"
+#brew "zig"
+#brew "delve"
+#brew "pyenv"
+
+cask "nikitabobko/tap/aerospace"
+
+
+## services
+brew "redis"
+#brew "act"
+
+## Cloud
+#brew "awscli"
+#brew "aws-iam-authenticator"
+#cask "google-cloud-sdk"
+
+##################
+## This is used, but commented out, since it unnecessarily continues to re-install and fails to find python
+## cask "google-cloud-sdk"
+##################
+
+## Kubernetes / Containers
+brew "kubectl"
+#brew "k9s"
+#cask "docker"
+##cask 'rancher'
+
+## User applications
+#cask "1password"
+#brew "java"
+#brew "maven"
+#brew "openjdk@11"
+#brew "openjdk@17"
+#brew "openjdk@21"
+cask "firefox"
+##cask "google-chrome"
+#cask "arc"
+#cask "intellij-idea"
+#cask "pycharm"
+#cask "webstorm"
+#cask "goland"
+#cask "bitbar"
+##cask "slack"
+#cask "discord"
+#cask "slack"
+#cask "postman"
+#cask "bruno"
+#cask "sublime-text"
+#cask "alfred"
+#cask "dash6"
+#cask "zoom"
+#cask "visual-studio-code"
+cask "spotify"
+#cask "arduino"
+#cask "tunnelblick"
+#brew "openssl@3"
+#brew "libyaml" 
+#brew "gmp" 
+#brew "rust"
+#brew "golangci-lint"
+
+
+
+
+
+#cask "vlc"
+#cask "boop"
+cask "stats"
+
+cask "processing"
+#cask "iterm2"
+#cask "kitty"
+#brew "fish"
+cask "ghostty"
+##cask "alacritty"
+
+#brew "jupyterlab"
+
+#brew "openvpn"
+#cask "openvpn-connect"
+brew "postgresql"
+#brew "liquibase"
+#cask "prisma-studio"
+
+## Databases
+##cask "graphiql"
+##cask "dbeaver-community"
+##brew "duckdb"
+##brew "mongodb-community"
+##cask "mongodb-compass"
+##cask "pgadmin4"
+##brew "mongodb-atlas-cli"
+##brew "mongosh"
+##brew "mongodb-database-tools"
+
+#brew "buf"
+#brew "clang-format"
+
+#brew 'pkg-config'
+#brew 'avr-gcc'
+#brew 'avro-c'
+#brew 'qmk/qmk/qmk'
+#cask 'qmk-toolbox'
+##cask 'via'
+
+#brew 'gotestsum'
+#brew 'go-task'
+#brew 'pylint'
+
+#brew 'grafana'
+#brew 'prometheus'
+#brew 'gptscript'
+
+#cask 'db-browser-for-sqlite'
+
+#brew 'localstack'
+#brew 'awscli-local'
+#brew 'rustup'
+
+cask 'claude-code'
+cask 'codex'
+#brew 'aws-cdk'
+
+brew 'tailscale'
+
+
+brew 'uv'
+brew 'gnupg'
+
+brew 'doppler'
+
+brew 'k3d'
