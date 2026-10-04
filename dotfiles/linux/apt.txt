@@ -34,3 +34,4 @@ libnvidia-decode-595:i386
 libnvidia-encode-595:i386
 libnvidia-fbc1-595:i386
 steam-installer
+plank

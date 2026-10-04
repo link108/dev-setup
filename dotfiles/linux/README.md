@@ -9,7 +9,7 @@ This is intentionally declarative and Brewfile-like.
 - `external/*.sh` — vendor installers, each one idempotent
 - `../shared/mise.toml` — language runtimes and CLI tool versions (linked to `~/.config/mise/config.toml`)
 - `../shared/link-dotfiles.sh` — symlinks zshrc, vimrc, git aliases, ghostty config
-- `cinnamon.sh` — desktop prefs: wallpaper slideshow (`~/Documents/desktop-backgrounds`), panel icon size, no window-list badges
+- `cinnamon.sh` — desktop prefs: wallpaper slideshow (`~/Documents/desktop-backgrounds`), top panel + Plank dock at bottom (macOS-ish), panel icon size, no window-list badges
 - `bootstrap-linux.sh` — generic runner; it reads the files above
 
 ## Run
