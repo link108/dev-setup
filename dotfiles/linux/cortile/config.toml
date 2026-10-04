@@ -4,6 +4,9 @@
 # Modifier is Super (the key where option sits on a mac). Alt is ghostty's cmd stand-in.
 # Workspace switching/moving (super+1-6, super+shift+1-6) is Cinnamon's, set in cinnamon.sh.
 # Directional focus (super+h/j/k/l) is focus-direction.py, also bound in cinnamon.sh.
+# alt+enter toggles the maximized layout via zoom-toggle.sh (cinnamon.sh). The fullscreen
+# layout has no key: it's one-way, once on every window on the workspace is forced fullscreen.
+# tiling_gui is off: the layout overlay popped up on every toggle and made it feel slow.
 # Cinnamon already owns super+arrows (tile), super+shift+arrows (monitor), super+d/e/s/p/o/space.
 
 ################################################################################
@@ -29,7 +32,7 @@ tiling_cycle = [
 ]
 
 # An overlay window is displayed for this time period [ms] when the layout was changed (0 = disabled).
-tiling_gui = 1500
+tiling_gui = 0
 
 # Menu entries in systray which shows the tiling state as icon ([] = disabled).
 # tiling_icon = [
@@ -175,7 +178,7 @@ layout_horizontal_bottom = ""
 layout_maximized = "Mod4-comma"
 
 # Activates the fullscreen layout (Return = Enter).
-layout_fullscreen = "Mod4-Return"
+layout_fullscreen = ""
 
 # Increase the number of slaves (Plus = +).
 slave_increase = ""

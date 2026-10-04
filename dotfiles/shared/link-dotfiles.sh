@@ -42,6 +42,7 @@ if [[ "$(uname -s)" == Linux ]]; then
   # cortile tiling (linux only; aerospace is the macOS counterpart)
   link "$REPO/dotfiles/linux/cortile/config.toml"   "$HOME/.config/cortile/config.toml"
   link "$REPO/dotfiles/linux/cortile/focus-direction.py" "$HOME/.config/cortile/focus-direction.py"
+  link "$REPO/dotfiles/linux/cortile/zoom-toggle.sh" "$HOME/.config/cortile/zoom-toggle.sh"
 else
   link "$REPO/config/ghostty/config" "$HOME/.config/ghostty/config"
 fi

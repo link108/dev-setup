@@ -34,7 +34,7 @@ for n in 1 2 3 4 5 6; do
 done
 
 # Directional focus for cortile (it only has next/previous): super+h/j/k/l
-echo "==> keybindings: super+h/j/k/l focus window left/down/up/right"
+echo "==> keybindings: super+h/j/k/l focus window left/down/up/right, alt+enter take over screen"
 focus="$HOME/.config/cortile/focus-direction.py"
 custom=/org/cinnamon/desktop/keybindings/custom-keybindings
 ids=()
@@ -45,11 +45,18 @@ for pair in h:left j:down k:up l:right; do
   dconf write "$custom/$id/binding" "['<Super>$key']"
   ids+=("'$id'")
 done
+# alt+enter: focused window takes over the screen and back, via cortile (app fullscreen fights the tiling)
+dconf write "$custom/zoom-toggle/name" "'Toggle window takes over screen (cortile)'"
+dconf write "$custom/zoom-toggle/command" "'$HOME/.config/cortile/zoom-toggle.sh'"
+dconf write "$custom/zoom-toggle/binding" "['<Alt>Return']"
+ids+=("'zoom-toggle'")
+
 list="$(dconf read /org/cinnamon/desktop/keybindings/custom-list)"
 list="$(python3 -c '
 import ast, sys
 cur = ast.literal_eval(sys.argv[1]) if sys.argv[1] else []
-print([i for i in cur if not i.startswith("focus-")] + [i.strip("\x27") for i in sys.argv[2:]])
+ours = [i.strip("\x27") for i in sys.argv[2:]]
+print([i for i in cur if i not in ours] + ours)
 ' "${list#@as }" "${ids[@]}")"
 dconf write /org/cinnamon/desktop/keybindings/custom-list "$list"
 
