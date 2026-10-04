@@ -1,5 +1,13 @@
 # Ghostty Configuration File
 
+# Look: keep the window border, drop the title/header bar
+window-decoration = client
+gtk-titlebar = false
+macos-titlebar-style = hidden
+window-padding-x = 6
+window-padding-y = 4
+window-padding-balance = true
+
 
 # Themes
 

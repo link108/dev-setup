@@ -82,8 +82,8 @@ reload_zsh() {
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-# Plugins (apt: zsh-autosuggestions zsh-syntax-highlighting). syntax-highlighting must be last.
-for plugin in zsh-autosuggestions zsh-syntax-highlighting; do
+# Plugins (apt: zsh-syntax-highlighting). Must be sourced last.
+for plugin in zsh-syntax-highlighting; do
   for dir in /usr/share/$plugin /usr/share/zsh/plugins/$plugin /opt/homebrew/share/$plugin /usr/local/share/$plugin; do
     if [[ -f $dir/$plugin.zsh ]]; then
       source $dir/$plugin.zsh
