@@ -131,6 +131,10 @@ theme = Hardcore
 # theme = Cyberdyne
 
 
+# Clipboard: cmd/super+c/v (macOS default; on Linux the default is ctrl+shift+c/v)
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+
 # Text Management
 keybind = cmd+shift+minus=unbind
 keybind = cmd+shift+minus=decrease_font_size:1

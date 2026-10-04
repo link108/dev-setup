@@ -6,30 +6,10 @@ This is intentionally declarative and Brewfile-like.
 
 - `apt.txt` — one APT package per line
 - `flatpak.txt` — one Flathub app ID per line
-- `external.txt` — vendor installers / .deb downloads
-- `mise.toml` — language runtimes and CLI tool versions
+- `external/*.sh` — vendor installers, each one idempotent
+- `../shared/mise.toml` — language runtimes and CLI tool versions (linked to `~/.config/mise/config.toml`)
+- `../shared/link-dotfiles.sh` — symlinks zshrc, vimrc, git aliases, ghostty config
 - `bootstrap-linux.sh` — generic runner; it reads the files above
-
-## external.txt format
-
-```text
-name|method|source
-```
-
-Supported methods:
-
-- `script` -> `curl -fsSL URL | bash`
-- `script-sh` -> `curl -fsSL URL | sh`
-- `deb` -> download `.deb`, then install with APT
-
-Example:
-
-```text
-codex|script-sh|https://chatgpt.com/codex/install.sh
-claude|script-sh|https://claude.ai/install.sh
-k3d|script|https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh
-chrome|deb|https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-```
 
 ## Run
 

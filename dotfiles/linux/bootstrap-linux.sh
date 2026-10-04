@@ -84,9 +84,23 @@ install_mise() {
     curl https://mise.run | sh
   fi
 
-  if [[ -f "$ROOT/shared/mise.toml" ]]; then
-    echo "==> installing mise tools from mise.toml"
-    "$HOME/.local/bin/mise" install -C "$ROOT" || mise install -C "$ROOT"
+  # shared/mise.toml is linked to ~/.config/mise/config.toml by link-dotfiles.sh
+  echo "==> installing mise tools"
+  "$HOME/.local/bin/mise" install
+}
+
+link_dotfiles() {
+  echo "==> linking dotfiles"
+  bash "$ROOT/../shared/link-dotfiles.sh"
+}
+
+set_default_shell() {
+  local zsh_path
+  zsh_path="$(command -v zsh)"
+
+  if [[ "$(getent passwd "$USER" | cut -d: -f7)" != "$zsh_path" ]]; then
+    echo "==> setting default shell to $zsh_path (takes effect on next login)"
+    sudo chsh -s "$zsh_path" "$USER"
   fi
 }
 
@@ -95,7 +109,9 @@ main() {
   install_apt_file "$ROOT/apt.txt"
   install_flatpak_file "$ROOT/flatpak.txt"
   install_external_scripts
+  link_dotfiles
   install_mise
+  set_default_shell
 
   echo
   echo "==> bootstrap complete"

@@ -1,2 +1,4 @@
 [alias]
-  diff = diff --color=always
+
+[color]
+  ui = auto

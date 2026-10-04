@@ -11,6 +11,8 @@ fd-find
 fzf
 tmux
 zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
 build-essential
 pkg-config
 unzip

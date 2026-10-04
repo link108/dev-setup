@@ -1,6 +1,10 @@
 [tools]
-# Uncomment / adjust versions as desired.
+kubectl = "latest"
+helm = "latest"
+just = "latest"
+"npm:@devcontainers/cli" = "latest"
+
+# Add these as desired
 # node = "24"
 # python = "3.13"
 # go = "1.25"
-# rust = "stable"
