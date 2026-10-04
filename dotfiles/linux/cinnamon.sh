@@ -21,8 +21,37 @@ gsettings set $slideshow slideshow-enabled true
 echo "==> panel icon sizes (0 = scale to panel height)"
 gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 0, "center": 0, "right": 24}]'
 
-echo "==> keybindings: free super+l for ghostty split focus (was Looking Glass)"
+echo "==> keybindings: free super+l for window focus (was Looking Glass)"
 gsettings set org.cinnamon.desktop.keybindings looking-glass-keybinding "[]"
+
+# Workspaces for cortile tiling: super+N switches, super+shift+N moves the window
+# (aerospace alt-N / alt-shift-N; alt is ghostty's here).
+echo "==> workspaces: 6, super+N switch, super+shift+N move window"
+gsettings set org.cinnamon.desktop.wm.preferences num-workspaces 6
+for n in 1 2 3 4 5 6; do
+  gsettings set org.cinnamon.desktop.keybindings.wm switch-to-workspace-$n "['<Super>$n']"
+  gsettings set org.cinnamon.desktop.keybindings.wm move-to-workspace-$n "['<Super><Shift>$n']"
+done
+
+# Directional focus for cortile (it only has next/previous): super+h/j/k/l
+echo "==> keybindings: super+h/j/k/l focus window left/down/up/right"
+focus="$HOME/.config/cortile/focus-direction.py"
+custom=/org/cinnamon/desktop/keybindings/custom-keybindings
+ids=()
+for pair in h:left j:down k:up l:right; do
+  key="${pair%%:*}" dir="${pair#*:}" id="focus-$dir"
+  dconf write "$custom/$id/name" "'Focus window $dir'"
+  dconf write "$custom/$id/command" "'$focus $dir'"
+  dconf write "$custom/$id/binding" "['<Super>$key']"
+  ids+=("'$id'")
+done
+list="$(dconf read /org/cinnamon/desktop/keybindings/custom-list)"
+list="$(python3 -c '
+import ast, sys
+cur = ast.literal_eval(sys.argv[1]) if sys.argv[1] else []
+print([i for i in cur if not i.startswith("focus-")] + [i.strip("\x27") for i in sys.argv[2:]])
+' "${list#@as }" "${ids[@]}")"
+dconf write /org/cinnamon/desktop/keybindings/custom-list "$list"
 
 # macOS-style layout: thin menu bar on top, Plank dock at the bottom.
 echo "==> panel: move to top, 32px"

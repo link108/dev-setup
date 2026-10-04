@@ -36,10 +36,5 @@ libnvidia-fbc1-595:i386
 steam-installer
 plank
 
-# i3 session (dotfiles/linux/i3)
-i3
-i3status
-rofi
-feh
-xss-lock
-dex
+# cortile directional focus (dotfiles/linux/cortile/focus-direction.py)
+wmctrl
