@@ -64,7 +64,40 @@ cur = ast.literal_eval(sys.argv[1]) if sys.argv[1] else []
 ours = [i.strip("\x27") for i in sys.argv[2:]]
 print([i for i in cur if i not in ours] + ours)
 ' "${list#@as }" "${ids[@]}")"
+# Cinnamon only re-grabs custom keys when the list changes, not when a binding inside it does;
+# clear it first so changed bindings take effect without logging out.
+dconf write /org/cinnamon/desktop/keybindings/custom-list "@as []"
 dconf write /org/cinnamon/desktop/keybindings/custom-list "$list"
+
+# Super is cmd (see the workspaces comment above): it shouldn't open the menu on its own or reach
+# panel applets (super+n notifications, super+c calendar shadowed ghostty's copy, ...).
+# super+space goes to ulauncher (external/ulauncher.sh), like spotlight on cmd-space.
+echo "==> keybindings: super alone does nothing, super+space for ulauncher, clear applet super binds"
+gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source "['XF86Keyboard']"
+gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source-backward "['<Shift>XF86Keyboard']"
+# Applet settings files only exist after the applet has loaded once (first login).
+python3 - "$HOME/.config/cinnamon/spices" <<'EOF' | while read -r uuid; do
+import glob, json, os, sys
+changed = set()
+for path in glob.glob(os.path.join(sys.argv[1], "*", "*.json")):
+    with open(path) as f:
+        d = json.load(f)
+    hit = False
+    for v in d.values():
+        if isinstance(v, dict) and v.get("type") == "keybinding" and "Super" in str(v.get("value", "")):
+            v["value"] = ""
+            hit = True
+    if hit:
+        with open(path, "w") as f:
+            json.dump(d, f, indent=4)
+        changed.add(os.path.basename(os.path.dirname(path)))
+print("\n".join(sorted(changed)))
+EOF
+  [[ -n "$uuid" ]] || continue
+  echo "    cleared super binds in $uuid"
+  dbus-send --session --dest=org.Cinnamon /org/Cinnamon \
+    org.Cinnamon.ReloadXlet string:"$uuid" string:'APPLET' 2>/dev/null || true
+done
 
 # macOS-style layout: thin menu bar on top, Plank dock at the bottom.
 echo "==> panel: move to top, 32px"
