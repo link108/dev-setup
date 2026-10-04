@@ -94,6 +94,10 @@ link_dotfiles() {
   bash "$ROOT/../shared/link-dotfiles.sh"
 }
 
+configure_desktop() {
+  bash "$ROOT/cinnamon.sh"
+}
+
 set_default_shell() {
   local zsh_path
   zsh_path="$(command -v zsh)"
@@ -112,6 +116,7 @@ main() {
   link_dotfiles
   install_mise
   set_default_shell
+  configure_desktop
 
   echo
   echo "==> bootstrap complete"
