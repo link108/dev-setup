@@ -24,6 +24,15 @@ gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 0, "ce
 echo "==> keybindings: free super+l for ghostty split focus (was Looking Glass)"
 gsettings set org.cinnamon.desktop.keybindings looking-glass-keybinding "[]"
 
+# Idle: no screensaver and no lock, the display just turns off after 15 min and wakes without a
+# password. ctrl+alt+l still locks on demand.
+echo "==> idle: display off after 15 min, no screensaver or lock"
+gsettings set org.cinnamon.desktop.screensaver idle-activation-enabled false
+gsettings set org.cinnamon.desktop.screensaver lock-enabled false
+gsettings set org.cinnamon.settings-daemon.plugins.power lock-on-suspend false
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 900
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 900
+
 # Workspaces for cortile tiling: alt+N switches, alt+shift+N moves the window, same as
 # aerospace's alt-N / alt-shift-N. Modifiers match the Mac by name: alt = option, super = cmd.
 echo "==> workspaces: 6, alt+N switch, alt+shift+N move window"
