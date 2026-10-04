@@ -44,6 +44,8 @@ if [[ "$(uname -s)" == Linux ]]; then
   link "$REPO/dotfiles/linux/cortile/focus-direction.py" "$HOME/.config/cortile/focus-direction.py"
   link "$REPO/dotfiles/linux/cortile/zoom-toggle.sh" "$HOME/.config/cortile/zoom-toggle.sh"
   link "$REPO/dotfiles/linux/cortile/tiling-toggle.sh" "$HOME/.config/cortile/tiling-toggle.sh"
+  # xremap: super acts as cmd in apps (super+t -> ctrl+t), started by external/xremap.sh
+  link "$REPO/dotfiles/linux/xremap/config.yml" "$HOME/.config/xremap/config.yml"
 else
   link "$REPO/config/ghostty/config" "$HOME/.config/ghostty/config"
 fi

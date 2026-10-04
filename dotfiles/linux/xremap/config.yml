@@ -1,0 +1,58 @@
+# Super is cmd (VIA puts it where cmd sits on a Mac). Linux apps use ctrl for those shortcuts,
+# so outside ghostty super+<key> is sent as ctrl+<key>. Ghostty binds super itself (ghostty/config).
+# Not remapped: super+space (ulauncher), super+arrows (Cinnamon tiling), alt (cortile).
+# Installed and started by external/xremap.sh; restart xremap after editing.
+keymap:
+  - name: super as cmd
+    application:
+      not: [com.mitchellh.ghostty]
+    remap:
+      # edit
+      Super-a: C-a
+      Super-c: C-c
+      Super-v: C-v
+      Super-Shift-v: C-Shift-v
+      Super-x: C-x
+      Super-z: C-z
+      Super-Shift-z: C-Shift-z
+      Super-f: C-f
+      Super-g: C-g
+      Super-Shift-g: C-Shift-g
+      Super-b: C-b
+      Super-i: C-i
+      Super-u: C-u
+      Super-k: C-k
+      # files
+      Super-s: C-s
+      Super-Shift-s: C-Shift-s
+      Super-o: C-o
+      Super-p: C-p
+      # tabs and windows
+      Super-t: C-t
+      Super-Shift-t: C-Shift-t
+      Super-w: C-w
+      Super-Shift-w: C-Shift-w
+      Super-n: C-n
+      Super-Shift-n: C-Shift-n
+      Super-q: C-q
+      Super-r: C-r
+      Super-Shift-r: C-Shift-r
+      Super-l: C-l
+      Super-d: C-d
+      Super-Shift-leftbrace: C-pageup
+      Super-Shift-rightbrace: C-pagedown
+      Super-leftbrace: Alt-left
+      Super-rightbrace: Alt-right
+      Super-1: C-1
+      Super-2: C-2
+      Super-3: C-3
+      Super-4: C-4
+      Super-5: C-5
+      Super-6: C-6
+      Super-7: C-7
+      Super-8: C-8
+      Super-9: C-9
+      # zoom
+      Super-equal: C-equal
+      Super-minus: C-minus
+      Super-0: C-0
