@@ -13,7 +13,7 @@ cat > "$HOME/.config/autostart/xremap.desktop" <<DESKTOP
 [Desktop Entry]
 Type=Application
 Name=xremap
-Exec=$BIN --watch=device $CONFIG
+Exec=$BIN --watch=device,config $CONFIG
 X-GNOME-Autostart-enabled=true
 DESKTOP
 
@@ -47,9 +47,9 @@ else
   echo "xremap $latest installed to $BIN"
 fi
 
-# (Re)start so config changes apply; skip outside an X session.
+# (Re)start so a new binary or autostart flags apply; skip outside an X session.
 if [[ -n "${DISPLAY:-}" && -f "$CONFIG" ]]; then
   pkill -x xremap || true
-  (setsid "$BIN" --watch=device "$CONFIG" >/tmp/xremap.log 2>&1 &)
+  (setsid "$BIN" --watch=device,config "$CONFIG" >/tmp/xremap.log 2>&1 &)
   echo "xremap: running (log /tmp/xremap.log)"
 fi

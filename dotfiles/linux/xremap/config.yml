@@ -1,11 +1,12 @@
 # Super is cmd (VIA puts it where cmd sits on a Mac). Linux apps use ctrl for those shortcuts,
 # so outside ghostty super+<key> is sent as ctrl+<key>. Ghostty binds super itself (ghostty/config).
 # Not remapped: super+space (ulauncher), super+arrows (Cinnamon tiling), alt (cortile).
-# Installed and started by external/xremap.sh; restart xremap after editing.
+# Installed and started by external/xremap.sh; xremap reloads it on save.
 keymap:
   - name: super as cmd
     application:
-      not: [com.mitchellh.ghostty]
+      # X11 app names are "instance.class" (ghostty.com.mitchellh.ghostty), so match by regex
+      not: [/ghostty/]
     remap:
       # edit
       Super-a: C-a
