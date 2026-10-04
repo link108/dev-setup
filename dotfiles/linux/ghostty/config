@@ -171,6 +171,8 @@ keybind = super+shift+l=resize_split:right,10
 # Zoom current split to fill the window. alt+enter (window takes over the screen) is cortile's, see
 # dotfiles/linux/cortile/zoom-toggle.sh; ghostty's own fullscreen fights the tiling.
 keybind = super+shift+enter=toggle_split_zoom
+# fullscreen is super+enter for every app (cinnamon.sh); free ctrl+enter for the shell
+keybind = ctrl+enter=unbind
 
 # Tabs and windows
 keybind = super+t=new_tab

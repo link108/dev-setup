@@ -38,3 +38,9 @@ plank
 
 # cortile directional focus (dotfiles/linux/cortile/focus-direction.py)
 wmctrl
+
+# super+q quit (dotfiles/linux/scripts/quit-app.py)
+python3-xlib
+
+# per-app window rules (dotfiles/linux/devilspie2)
+devilspie2

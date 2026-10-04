@@ -1,8 +1,9 @@
 # Super is cmd (VIA puts it where cmd sits on a Mac). Linux apps use ctrl for those shortcuts,
 # so outside ghostty super+<key> is sent as ctrl+<key>. Ghostty binds super itself (ghostty/config).
-# Not remapped: super+space (ulauncher), super+arrows (Cinnamon tiling), alt beyond the word
-# keys below (cortile). Installed and started by external/xremap.sh; xremap reloads it on in-place
-# saves, but an editor that replaces the file needs xremap restarted.
+# Not remapped: super+space (ulauncher), super+q/enter/tab (Cinnamon, cinnamon.sh), super+arrows
+# (Cinnamon tiling), alt beyond the word keys below (cortile). Installed and started by
+# external/xremap.sh; xremap reloads it on in-place saves, but an editor that replaces the file
+# needs xremap restarted.
 keymap:
   # Mac line and word keys, everywhere but ghostty (the shell already does these). Safe because the
   # apps' own ctrl+a/e/k (select all, ...) are reached with super, which is sent as ctrl below and
@@ -60,7 +61,6 @@ keymap:
       Super-Shift-w: C-Shift-w
       Super-n: C-n
       Super-Shift-n: C-Shift-n
-      Super-q: C-q
       Super-r: C-r
       Super-Shift-r: C-Shift-r
       Super-l: C-l

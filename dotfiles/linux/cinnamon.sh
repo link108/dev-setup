@@ -71,6 +71,11 @@ dconf write "$custom/tiling-toggle/name" "'Toggle tiling on this workspace (cort
 dconf write "$custom/tiling-toggle/command" "'$HOME/.config/cortile/tiling-toggle.sh'"
 dconf write "$custom/tiling-toggle/binding" "['<Alt><Shift>t']"
 ids+=("'tiling-toggle'")
+# super+q quits the focused app like cmd-q, tray apps included (scripts/quit-app.py)
+dconf write "$custom/quit-app/name" "'Quit focused app'"
+dconf write "$custom/quit-app/command" "'$HOME/.local/bin/quit-app'"
+dconf write "$custom/quit-app/binding" "['<Super>q']"
+ids+=("'quit-app'")
 
 list="$(dconf read /org/cinnamon/desktop/keybindings/custom-list)"
 list="$(python3 -c '
@@ -90,6 +95,8 @@ dconf write /org/cinnamon/desktop/keybindings/custom-list "$list"
 echo "==> keybindings: super alone does nothing, super+space for ulauncher, clear applet super binds"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source "['XF86Keyboard']"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source-backward "['<Shift>XF86Keyboard']"
+# super+enter fullscreens any app (ghostty's own ctrl+enter is unbound in ghostty/config)
+gsettings set org.cinnamon.desktop.keybindings.wm toggle-fullscreen "['<Super>Return']"
 # super+tab switches windows like cmd-tab; alt+tab still works too
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows "['<Alt>Tab', '<Super>Tab']"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows-backward "['<Shift><Alt>Tab', '<Shift><Super>Tab']"
