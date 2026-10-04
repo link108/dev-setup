@@ -1,0 +1,35 @@
+# One APT package per line.
+# Blank lines and comments are ignored.
+
+git
+vim
+curl
+wget
+jq
+ripgrep
+fd-find
+fzf
+tmux
+zsh
+build-essential
+pkg-config
+unzip
+zip
+ca-certificates
+gnupg
+software-properties-common
+podman
+podman-compose
+python3
+python3-pip
+python3-venv
+pipx
+
+
+
+libnvidia-gl-595:i386
+libnvidia-compute-595:i386
+libnvidia-decode-595:i386
+libnvidia-encode-595:i386
+libnvidia-fbc1-595:i386
+steam-installer

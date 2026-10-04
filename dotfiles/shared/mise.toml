@@ -1,0 +1,6 @@
+[tools]
+# Uncomment / adjust versions as desired.
+# node = "24"
+# python = "3.13"
+# go = "1.25"
+# rust = "stable"

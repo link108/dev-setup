@@ -1,0 +1,10 @@
+# One Flatpak application ID per line.
+# Blank lines and comments are ignored.
+
+com.discordapp.Discord
+com.slack.Slack
+com.spotify.Client
+org.godotengine.Godot
+org.blender.Blender
+net.lutris.Lutris
+com.adamcake.Bolt
