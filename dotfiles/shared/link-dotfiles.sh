@@ -36,7 +36,12 @@ if ! git config --global --get-all include.path | grep -qx '~/.gitconfig.aliases
   echo "==> added ~/.gitconfig.aliases to ~/.gitconfig includes"
 fi
 
-link "$REPO/config/ghostty/config" "$HOME/.config/ghostty/config"
+# ghostty: linux has its own config (super keybinds, Cinnamon conflicts); config/ghostty is macOS
+if [[ "$(uname -s)" == Linux ]]; then
+  link "$REPO/dotfiles/linux/ghostty/config" "$HOME/.config/ghostty/config"
+else
+  link "$REPO/config/ghostty/config" "$HOME/.config/ghostty/config"
+fi
 
 # mise global tools
 link "$SHARED/mise.toml"           "$HOME/.config/mise/config.toml"

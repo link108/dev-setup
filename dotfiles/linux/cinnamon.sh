@@ -21,6 +21,9 @@ gsettings set $slideshow slideshow-enabled true
 echo "==> panel icon sizes (0 = scale to panel height)"
 gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 0, "center": 0, "right": 24}]'
 
+echo "==> keybindings: free super+l for ghostty split focus (was Looking Glass)"
+gsettings set org.cinnamon.desktop.keybindings looking-glass-keybinding "[]"
+
 # macOS-style layout: thin menu bar on top, Plank dock at the bottom.
 echo "==> panel: move to top, 32px"
 gsettings set org.cinnamon panels-enabled "['1:0:top']"
