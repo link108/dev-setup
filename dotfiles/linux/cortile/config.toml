@@ -104,7 +104,8 @@ proportion_min = 0.2
 edge_margin = [0, 0, 0, 0]
 
 # Margin of the tiling area on primary screen ([top, right, bottom, left]).
-edge_margin_primary = [0, 0, 0, 0]
+# Cortile misses the Cinnamon top panel (32px, see cinnamon.sh) and windows overlap without this.
+edge_margin_primary = [32, 0, 0, 0]
 
 # Width and height of a hot-corner area within the edge corners (0 - 100).
 edge_corner_size = 10

@@ -74,11 +74,13 @@ print([a for a in ast.literal_eval(sys.argv[1]) if "grouped-window-list@" not in
 ' "$applets")"
   gsettings set org.cinnamon enabled-applets "$applets"
 
-  echo "==> plank: bottom, centered, always visible"
+  # auto-hide like the macOS dock; it also leaves the bottom edge to cortile's tiling
+  echo "==> plank: bottom, centered, auto-hide"
   dock=net.launchpad.plank.dock.settings:/net/launchpad/plank/docks/dock1/
   gsettings set $dock position bottom
   gsettings set $dock alignment center
-  gsettings set $dock hide-mode none
+  gsettings set $dock hide-mode auto
+  gsettings set $dock unhide-delay 0
   gsettings set $dock icon-size 48
   gsettings set $dock zoom-enabled true
   gsettings set $dock zoom-percent 150
