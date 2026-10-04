@@ -46,6 +46,8 @@ if [[ "$(uname -s)" == Linux ]]; then
   link "$REPO/dotfiles/linux/cortile/tiling-toggle.sh" "$HOME/.config/cortile/tiling-toggle.sh"
   # xremap: super acts as cmd in apps (super+t -> ctrl+t), started by external/xremap.sh
   link "$REPO/dotfiles/linux/xremap/config.yml" "$HOME/.config/xremap/config.yml"
+  # ulauncher wrapper: picking an open app switches to it (started by external/ulauncher.sh)
+  link "$REPO/dotfiles/linux/ulauncher/ulauncher-raise.py" "$HOME/.local/bin/ulauncher-raise"
   # super+q quits the focused app (bound in cinnamon.sh)
   link "$REPO/dotfiles/linux/scripts/quit-app.py" "$HOME/.local/bin/quit-app"
   # devilspie2: per-app window rules (spotify without a title bar), started by external/devilspie2.sh

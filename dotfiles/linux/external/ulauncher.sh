@@ -2,12 +2,13 @@
 set -euo pipefail
 
 # Start hidden at login. Hotkey is super+space (cmd-space, like spotlight); cinnamon.sh frees it.
+# Runs through ulauncher-raise (dotfiles/linux/ulauncher) so picking an open app switches to it.
 mkdir -p "$HOME/.config/autostart"
 cat > "$HOME/.config/autostart/ulauncher.desktop" <<'EOF'
 [Desktop Entry]
 Type=Application
 Name=Ulauncher
-Exec=ulauncher --hide-window
+Exec=sh -c '$HOME/.local/bin/ulauncher-raise --hide-window'
 X-GNOME-Autostart-enabled=true
 EOF
 
@@ -24,7 +25,7 @@ with open(sys.argv[1], "w") as f:
 PY
   if pgrep -x ulauncher >/dev/null; then
     pkill -x ulauncher
-    (setsid ulauncher --hide-window >/dev/null 2>&1 &)
+    (setsid "$HOME/.local/bin/ulauncher-raise" --hide-window >/dev/null 2>&1 &)
   fi
   echo "Ulauncher hotkey: super+space"
 fi
