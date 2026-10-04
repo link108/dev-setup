@@ -35,3 +35,11 @@ libnvidia-encode-595:i386
 libnvidia-fbc1-595:i386
 steam-installer
 plank
+
+# i3 session (dotfiles/linux/i3)
+i3
+i3status
+rofi
+feh
+xss-lock
+dex

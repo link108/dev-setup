@@ -8,7 +8,8 @@ This is intentionally declarative and Brewfile-like.
 - `flatpak.txt` — one Flathub app ID per line
 - `external/*.sh` — vendor installers, each one idempotent
 - `../shared/mise.toml` — language runtimes and CLI tool versions (linked to `~/.config/mise/config.toml`)
-- `../shared/link-dotfiles.sh` — symlinks zshrc, vimrc, git aliases, ghostty config (`ghostty/config` on linux)
+- `../shared/link-dotfiles.sh` — symlinks zshrc, vimrc, git aliases, ghostty config (`ghostty/config` on linux), i3 config
+- `i3/config` — i3 tiling session modelled on `config/aerospace` (Super is the modifier; pick "i3" at login), linked to `~/.config/i3/`
 - `cinnamon.sh` — desktop prefs: wallpaper slideshow (`~/Documents/desktop-backgrounds`), top panel + Plank dock at bottom (macOS-ish), panel icon size, no window-list badges
 - `bootstrap-linux.sh` — generic runner; it reads the files above
 

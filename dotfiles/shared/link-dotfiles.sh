@@ -36,9 +36,12 @@ if ! git config --global --get-all include.path | grep -qx '~/.gitconfig.aliases
   echo "==> added ~/.gitconfig.aliases to ~/.gitconfig includes"
 fi
 
-# ghostty: linux has its own config (super keybinds, Cinnamon conflicts); config/ghostty is macOS
+# ghostty: linux has its own config (alt keybinds); config/ghostty is macOS
 if [[ "$(uname -s)" == Linux ]]; then
   link "$REPO/dotfiles/linux/ghostty/config" "$HOME/.config/ghostty/config"
+  # i3 (linux only; aerospace is the macOS counterpart)
+  link "$REPO/dotfiles/linux/i3/config"             "$HOME/.config/i3/config"
+  link "$REPO/dotfiles/linux/i3/focus-or-launch.sh" "$HOME/.config/i3/focus-or-launch.sh"
 else
   link "$REPO/config/ghostty/config" "$HOME/.config/ghostty/config"
 fi
