@@ -95,8 +95,10 @@ print("\n".join(sorted(changed)))
 EOF
   [[ -n "$uuid" ]] || continue
   echo "    cleared super binds in $uuid"
-  dbus-send --session --dest=org.Cinnamon /org/Cinnamon \
-    org.Cinnamon.ReloadXlet string:"$uuid" string:'APPLET' 2>/dev/null || true
+  # wait for each reload; fired back to back without a reply, cinnamon kept the old hotkeys
+  dbus-send --session --print-reply --dest=org.Cinnamon /org/Cinnamon \
+    org.Cinnamon.ReloadXlet string:"$uuid" string:'APPLET' >/dev/null 2>&1 || true
+  sleep 1
 done
 
 # macOS-style layout: thin menu bar on top, Plank dock at the bottom.
