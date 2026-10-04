@@ -34,7 +34,7 @@ for n in 1 2 3 4 5 6; do
 done
 
 # Directional focus for cortile (it only has next/previous): super+h/j/k/l
-echo "==> keybindings: super+h/j/k/l focus window left/down/up/right, alt+enter take over screen"
+echo "==> keybindings: super+h/j/k/l focus window left/down/up/right, alt+enter take over screen, super+shift+t tiling on/off"
 focus="$HOME/.config/cortile/focus-direction.py"
 custom=/org/cinnamon/desktop/keybindings/custom-keybindings
 ids=()
@@ -50,6 +50,11 @@ dconf write "$custom/zoom-toggle/name" "'Toggle window takes over screen (cortil
 dconf write "$custom/zoom-toggle/command" "'$HOME/.config/cortile/zoom-toggle.sh'"
 dconf write "$custom/zoom-toggle/binding" "['<Alt>Return']"
 ids+=("'zoom-toggle'")
+# super+shift+t: tiling on/off for the current workspace
+dconf write "$custom/tiling-toggle/name" "'Toggle tiling on this workspace (cortile)'"
+dconf write "$custom/tiling-toggle/command" "'$HOME/.config/cortile/tiling-toggle.sh'"
+dconf write "$custom/tiling-toggle/binding" "['<Super><Shift>t']"
+ids+=("'tiling-toggle'")
 
 list="$(dconf read /org/cinnamon/desktop/keybindings/custom-list)"
 list="$(python3 -c '

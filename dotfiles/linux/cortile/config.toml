@@ -6,6 +6,8 @@
 # Directional focus (super+h/j/k/l) is focus-direction.py, also bound in cinnamon.sh.
 # alt+enter toggles the maximized layout via zoom-toggle.sh (cinnamon.sh). The fullscreen
 # layout has no key: it's one-way, once on every window on the workspace is forced fullscreen.
+# super+shift+t toggles tiling per workspace via tiling-toggle.sh (cinnamon.sh); cortile's own
+# grab of that key never fired. The first workspace starts untiled (external/cortile.sh).
 # tiling_gui is off: the layout overlay popped up on every toggle and made it feel slow.
 # Cinnamon already owns super+arrows (tile), super+shift+arrows (monitor), super+d/e/s/p/o/space.
 
@@ -146,7 +148,7 @@ enable = ""
 disable = ""
 
 # Toggle between enable and disable on the current screen.
-toggle = "Mod4-Shift-T"
+toggle = ""
 
 # Toggle window decoration on and off on the current screen.
 decoration = ""
