@@ -43,6 +43,9 @@ gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 9
 # aerospace's alt-N / alt-shift-N. Modifiers match the Mac by name: alt = option, super = cmd.
 echo "==> workspaces: 6, alt+N switch, alt+shift+N move window"
 gsettings set org.cinnamon.desktop.wm.preferences num-workspaces 6
+# switch instantly and quietly, like aerospace
+gsettings set org.cinnamon desktop-effects-workspace false
+gsettings set org.cinnamon.sounds switch-enabled false
 for n in 1 2 3 4 5 6; do
   gsettings set org.cinnamon.desktop.keybindings.wm switch-to-workspace-$n "['<Alt>$n']"
   gsettings set org.cinnamon.desktop.keybindings.wm move-to-workspace-$n "['<Alt><Shift>$n']"
