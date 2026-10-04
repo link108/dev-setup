@@ -2,7 +2,7 @@
 """Focus the nearest window in a direction (left|down|up|right) on the current workspace.
 
 Cortile only cycles focus next/previous, so this fills in aerospace-style hjkl focus.
-Bound to super+h/j/k/l by cinnamon.sh. Needs wmctrl, xprop and xwininfo.
+Bound to alt+h/j/k/l by cinnamon.sh. Needs wmctrl, xprop and xwininfo.
 """
 import subprocess
 import sys

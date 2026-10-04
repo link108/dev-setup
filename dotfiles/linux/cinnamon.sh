@@ -21,20 +21,20 @@ gsettings set $slideshow slideshow-enabled true
 echo "==> panel icon sizes (0 = scale to panel height)"
 gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 0, "center": 0, "right": 24}]'
 
-echo "==> keybindings: free super+l for window focus (was Looking Glass)"
+echo "==> keybindings: free super+l for ghostty split focus (was Looking Glass)"
 gsettings set org.cinnamon.desktop.keybindings looking-glass-keybinding "[]"
 
-# Workspaces for cortile tiling: super+N switches, super+shift+N moves the window
-# (aerospace alt-N / alt-shift-N; alt is ghostty's here).
-echo "==> workspaces: 6, super+N switch, super+shift+N move window"
+# Workspaces for cortile tiling: alt+N switches, alt+shift+N moves the window, same as
+# aerospace's alt-N / alt-shift-N. Modifiers match the Mac by name: alt = option, super = cmd.
+echo "==> workspaces: 6, alt+N switch, alt+shift+N move window"
 gsettings set org.cinnamon.desktop.wm.preferences num-workspaces 6
 for n in 1 2 3 4 5 6; do
-  gsettings set org.cinnamon.desktop.keybindings.wm switch-to-workspace-$n "['<Super>$n']"
-  gsettings set org.cinnamon.desktop.keybindings.wm move-to-workspace-$n "['<Super><Shift>$n']"
+  gsettings set org.cinnamon.desktop.keybindings.wm switch-to-workspace-$n "['<Alt>$n']"
+  gsettings set org.cinnamon.desktop.keybindings.wm move-to-workspace-$n "['<Alt><Shift>$n']"
 done
 
-# Directional focus for cortile (it only has next/previous): super+h/j/k/l
-echo "==> keybindings: super+h/j/k/l focus window left/down/up/right, alt+enter take over screen, super+shift+t tiling on/off"
+# Directional focus for cortile (it only has next/previous): alt+h/j/k/l, like aerospace
+echo "==> keybindings: alt+h/j/k/l focus window left/down/up/right, alt+enter take over screen, alt+shift+t tiling on/off"
 focus="$HOME/.config/cortile/focus-direction.py"
 custom=/org/cinnamon/desktop/keybindings/custom-keybindings
 ids=()
@@ -42,18 +42,19 @@ for pair in h:left j:down k:up l:right; do
   key="${pair%%:*}" dir="${pair#*:}" id="focus-$dir"
   dconf write "$custom/$id/name" "'Focus window $dir'"
   dconf write "$custom/$id/command" "'$focus $dir'"
-  dconf write "$custom/$id/binding" "['<Super>$key']"
+  dconf write "$custom/$id/binding" "['<Alt>$key']"
   ids+=("'$id'")
 done
-# alt+enter: focused window takes over the screen and back, via cortile (app fullscreen fights the tiling)
+# alt+enter: focused window takes over the screen and back (aerospace alt-enter), via cortile
+# (app fullscreen fights the tiling)
 dconf write "$custom/zoom-toggle/name" "'Toggle window takes over screen (cortile)'"
 dconf write "$custom/zoom-toggle/command" "'$HOME/.config/cortile/zoom-toggle.sh'"
 dconf write "$custom/zoom-toggle/binding" "['<Alt>Return']"
 ids+=("'zoom-toggle'")
-# super+shift+t: tiling on/off for the current workspace
+# alt+shift+t: tiling on/off for the current workspace
 dconf write "$custom/tiling-toggle/name" "'Toggle tiling on this workspace (cortile)'"
 dconf write "$custom/tiling-toggle/command" "'$HOME/.config/cortile/tiling-toggle.sh'"
-dconf write "$custom/tiling-toggle/binding" "['<Super><Shift>t']"
+dconf write "$custom/tiling-toggle/binding" "['<Alt><Shift>t']"
 ids+=("'tiling-toggle'")
 
 list="$(dconf read /org/cinnamon/desktop/keybindings/custom-list)"

@@ -1,15 +1,16 @@
 # Cortile (linux only): auto-tiling on top of Cinnamon/Muffin, modelled on config/aerospace.
 # Upstream defaults: https://github.com/leukipp/cortile/blob/main/config.toml
 #
-# Modifier is Super (the key where option sits on a mac). Alt is ghostty's cmd stand-in.
-# Workspace switching/moving (super+1-6, super+shift+1-6) is Cinnamon's, set in cinnamon.sh.
-# Directional focus (super+h/j/k/l) is focus-direction.py, also bound in cinnamon.sh.
+# Modifier is Alt, matching aerospace's alt (option) on the Mac. Super is cmd, ghostty's.
+# Workspace switching/moving (alt+1-6, alt+shift+1-6) is Cinnamon's, set in cinnamon.sh.
+# Directional focus (alt+h/j/k/l) is focus-direction.py, also bound in cinnamon.sh.
 # alt+enter toggles the maximized layout via zoom-toggle.sh (cinnamon.sh). The fullscreen
 # layout has no key: it's one-way, once on every window on the workspace is forced fullscreen.
-# super+shift+t toggles tiling per workspace via tiling-toggle.sh (cinnamon.sh); cortile's own
+# alt+shift+t toggles tiling per workspace via tiling-toggle.sh (cinnamon.sh); cortile's own
 # grab of that key never fired. The first workspace starts untiled (external/cortile.sh).
 # tiling_gui is off: the layout overlay popped up on every toggle and made it feel slow.
-# Cinnamon already owns super+arrows (tile), super+shift+arrows (monitor), super+d/e/s/p/o/space.
+# Cinnamon owns super+arrows (tile), super+shift+arrows (monitor), super+d/e/s/p/o/space;
+# ghostty's super binds stay clear of those.
 
 ################################################################################
 #                                                                              #
@@ -157,13 +158,13 @@ decoration = ""
 restore = ""
 
 # Reset layouts to default proportions (BackSpace = Delete_Left)
-reset = "Mod4-Shift-R"
+reset = "Mod1-Shift-R"
 
 # Cycles through next layouts (Next = Page_Down).
-cycle_next = "Mod4-slash"
+cycle_next = "Mod1-slash"
 
 # Cycles through previous layouts (Prior = Page_Up).
-cycle_previous = "Mod4-Shift-slash"
+cycle_previous = "Mod1-Shift-slash"
 
 # Activates the vertical-left layout (Left = Arrow_Left).
 layout_vertical_left = ""
@@ -178,7 +179,7 @@ layout_horizontal_top = ""
 layout_horizontal_bottom = ""
 
 # Activates the maximized layout (Space = Blank).
-layout_maximized = "Mod4-comma"
+layout_maximized = "Mod1-comma"
 
 # Activates the fullscreen layout (Return = Enter).
 layout_fullscreen = ""
@@ -190,10 +191,10 @@ slave_increase = ""
 slave_decrease = ""
 
 # Increase the number of masters (KP_Add = Num_+).
-master_increase = "Mod4-Shift-equal"
+master_increase = "Mod1-Shift-equal"
 
 # Decrease the number of masters (KP_Subtract = Num_-).
-master_decrease = "Mod4-Shift-minus"
+master_decrease = "Mod1-Shift-minus"
 
 # Move focus to the next window (KP_2 = Num_2).
 window_next = ""
@@ -208,25 +209,25 @@ screen_next = ""
 screen_previous = ""
 
 # Make the active window a master (KP_5 = Num_5).
-master_make = "Mod4-Shift-Return"
+master_make = "Mod1-Shift-Return"
 
 # Make the next window a master (KP_6 = Num_6).
-master_make_next = "Mod4-Shift-J"
+master_make_next = "Mod1-Shift-J"
 
 # Make the previous window a master (KP_4 = Num_4).
-master_make_previous = "Mod4-Shift-K"
+master_make_previous = "Mod1-Shift-K"
 
 # Increase the proportion of master-slave area (KP_3 = Num_3).
-proportion_increase = "Mod4-equal"
+proportion_increase = "Mod1-equal"
 
 # Decrease the proportion of master-slave area (KP_1 = Num_1).
-proportion_decrease = "Mod4-minus"
+proportion_decrease = "Mod1-minus"
 
 # Some commands above will affect all screens if this key is pressed in addition (Mod1 = Alt_L).
 mod_screens = "Control"
 
 # Some commands above will affect all workspaces if this key is pressed in addition (Mod4 = Super_L).
-mod_workspaces = "Mod1"
+mod_workspaces = "Mod4"
 
 ################################################################################
 [corners]                                # Action strings from [keys] section. #
