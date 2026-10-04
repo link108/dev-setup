@@ -90,6 +90,9 @@ dconf write /org/cinnamon/desktop/keybindings/custom-list "$list"
 echo "==> keybindings: super alone does nothing, super+space for ulauncher, clear applet super binds"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source "['XF86Keyboard']"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source-backward "['<Shift>XF86Keyboard']"
+# super+tab switches windows like cmd-tab; alt+tab still works too
+gsettings set org.cinnamon.desktop.keybindings.wm switch-windows "['<Alt>Tab', '<Super>Tab']"
+gsettings set org.cinnamon.desktop.keybindings.wm switch-windows-backward "['<Shift><Alt>Tab', '<Shift><Super>Tab']"
 # Applet settings files only exist after the applet has loaded once (first login).
 python3 - "$HOME/.config/cinnamon/spices" <<'EOF' | while read -r uuid; do
 import glob, json, os, sys
