@@ -37,6 +37,10 @@ zle -N down-line-or-beginning-search
 bindkey "^p" up-line-or-beginning-search
 bindkey "^n" down-line-or-beginning-search
 
+# alt(option)+left/right jump words (alt+b/f/backspace already work via emacs mode)
+bindkey "^[[1;3D" backward-word
+bindkey "^[[1;3C" forward-word
+
 # Prompt with VC info
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
