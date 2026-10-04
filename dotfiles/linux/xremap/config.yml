@@ -3,6 +3,24 @@
 # Not remapped: super+space (ulauncher), super+arrows (Cinnamon tiling), alt (cortile).
 # Installed and started by external/xremap.sh; xremap reloads it on save.
 keymap:
+  # Mac line keys on ctrl, everywhere but ghostty (the shell already does these). Safe because the
+  # apps' own ctrl+a/e/k (select all, ...) are reached with super, which is sent as ctrl below and
+  # xremap doesn't remap its own output.
+  - name: mac line keys
+    application:
+      not: [/ghostty/]
+    remap:
+      C-a: Home
+      C-e: End
+      C-f: Right
+      C-b: Left
+      C-n: Down
+      C-p: Up
+      # delete the char after the cursor
+      C-d: Delete
+      # kill to end of line (at the end it deletes the newline, like the Mac)
+      C-k: [Shift-End, Delete]
+
   - name: super as cmd
     application:
       # X11 app names are "instance.class" (ghostty.com.mitchellh.ghostty), so match by regex
@@ -16,6 +34,7 @@ keymap:
       Super-x: C-x
       Super-z: C-z
       Super-Shift-z: C-Shift-z
+      Super-e: C-e
       Super-f: C-f
       Super-g: C-g
       Super-Shift-g: C-Shift-g
