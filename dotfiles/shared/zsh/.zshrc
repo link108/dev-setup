@@ -61,6 +61,9 @@ else
   alias ls='ls --color=auto'
   # Debian/Ubuntu ship fd as fdfind
   (( $+commands[fdfind] && ! $+commands[fd] )) && alias fd='fdfind'
+  # Mac clipboard commands; the clipboard selection is ctrl+c/v, not the middle-click one
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
 fi
 export EDITOR=vim VISUAL=vim
 

@@ -44,3 +44,6 @@ python3-xlib
 
 # per-app window rules (dotfiles/linux/devilspie2)
 devilspie2
+
+# pbcopy/pbpaste aliases (shared/zsh/.zshrc)
+xclip
