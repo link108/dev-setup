@@ -55,6 +55,9 @@ if [[ "$(uname -s)" == Linux ]]; then
   link "$REPO/dotfiles/linux/scripts/power-mode.desktop" "$HOME/.local/share/applications/power-mode.desktop"
   link "$REPO/dotfiles/linux/scripts/power-mode-tray.py" "$HOME/.local/bin/power-mode-tray"
   link "$REPO/dotfiles/linux/scripts/power-mode-tray.desktop" "$HOME/.config/autostart/power-mode-tray.desktop"
+  # wine/proton windows don't steal focus when switching back to their workspace
+  link "$REPO/dotfiles/linux/scripts/keep-focus.py" "$HOME/.local/bin/keep-focus"
+  link "$REPO/dotfiles/linux/scripts/keep-focus.desktop" "$HOME/.config/autostart/keep-focus.desktop"
   # devilspie2: per-app window rules (spotify without a title bar), started by external/devilspie2.sh
   link "$REPO/dotfiles/linux/devilspie2/spotify.lua" "$HOME/.config/devilspie2/spotify.lua"
 else

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Keep Focus
+Comment=Wine windows don't steal focus on workspace switch (scripts/keep-focus.py)
+Exec=sh -c "\\$HOME/.local/bin/keep-focus"
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
