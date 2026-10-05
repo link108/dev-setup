@@ -2,8 +2,9 @@
 set -euo pipefail
 
 # Temperatures, fans and pump in one place: CPU (k10temp), board (asusec), RTX 3080 (nvidia),
-# Corsair Commander PRO (kernel driver) and Commander CORE AIO (no kernel driver, read through
-# liquidctl). The daemon serves the UI at http://localhost:11987; the coolercontrol app wraps it.
+# Corsair Commander PRO (kernel driver) and Lighting Node Pro (liquidctl). The Commander CORE AIO
+# is left to OpenLinkHub (external/openlinkhub.sh). The daemon serves the UI at
+# http://localhost:11987; the coolercontrol app wraps it.
 if command -v coolercontrold >/dev/null 2>&1; then
   echo "CoolerControl already installed"
   exit 0
