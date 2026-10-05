@@ -53,6 +53,7 @@ done
 
 # Directional focus for cortile (it only has next/previous): alt+h/j/k/l, like aerospace
 echo "==> keybindings: alt+h/j/k/l focus window left/down/up/right, alt+enter take over screen, alt+shift+t tiling on/off"
+echo "==> keybindings: alt+t/c/s ghostty/chrome/slack, alt+shift+s/d spotify/discord"
 focus="$HOME/.config/cortile/focus-direction.py"
 custom=/org/cinnamon/desktop/keybindings/custom-keybindings
 ids=()
@@ -79,6 +80,18 @@ dconf write "$custom/quit-app/name" "'Quit focused app'"
 dconf write "$custom/quit-app/command" "'$HOME/.local/bin/quit-app'"
 dconf write "$custom/quit-app/binding" "['<Super>q']"
 ids+=("'quit-app'")
+# alt+<letter> switches to an app, launching it if needed; again cycles its windows, like
+# aerospace's alt-<letter> binds (scripts/focus-app.py). Shifted letters are alt+shift.
+for spec in t:ghostty:com.mitchellh.ghostty c:google-chrome:google-chrome \
+  S:spotify:com.spotify.Client s:slack:com.slack.Slack D:discord:com.discordapp.Discord; do
+  IFS=: read -r key class app <<<"$spec"
+  id="focus-app-$class" binding="<Alt>$key"
+  [[ $key == [A-Z] ]] && binding="<Alt><Shift>${key,,}"
+  dconf write "$custom/$id/name" "'Switch to $class'"
+  dconf write "$custom/$id/command" "'$HOME/.local/bin/focus-app $class $app'"
+  dconf write "$custom/$id/binding" "['$binding']"
+  ids+=("'$id'")
+done
 
 list="$(dconf read /org/cinnamon/desktop/keybindings/custom-list)"
 list="$(python3 -c '

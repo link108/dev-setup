@@ -50,6 +50,7 @@ if [[ "$(uname -s)" == Linux ]]; then
   link "$REPO/dotfiles/linux/ulauncher/ulauncher-raise.py" "$HOME/.local/bin/ulauncher-raise"
   # super+q quits the focused app (bound in cinnamon.sh)
   link "$REPO/dotfiles/linux/scripts/quit-app.py" "$HOME/.local/bin/quit-app"
+  link "$REPO/dotfiles/linux/scripts/focus-app.py" "$HOME/.local/bin/focus-app"
   # devilspie2: per-app window rules (spotify without a title bar), started by external/devilspie2.sh
   link "$REPO/dotfiles/linux/devilspie2/spotify.lua" "$HOME/.config/devilspie2/spotify.lua"
 else

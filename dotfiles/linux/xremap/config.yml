@@ -5,6 +5,12 @@
 # external/xremap.sh; xremap reloads it on in-place saves, but an editor that replaces the file
 # needs xremap restarted.
 keymap:
+  # alt+shift+d is Discord (focus-app, cinnamon.sh). xremap matches with extra modifiers held, so
+  # the word key Alt-d below would eat it; the first keymap that matches wins, so pass it through.
+  - name: app switch keys
+    remap:
+      Alt-Shift-d: Alt-Shift-d
+
   # Mac line and word keys, everywhere but ghostty (the shell already does these). Safe because the
   # apps' own ctrl+a/e/k (select all, ...) are reached with super, which is sent as ctrl below and
   # xremap doesn't remap its own output.
