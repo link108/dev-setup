@@ -12,22 +12,21 @@ if ! command -v OpenLinkHub >/dev/null 2>&1 && [ ! -x /opt/OpenLinkHub/OpenLinkH
   sudo apt install -y openlinkhub
 fi
 
-# OpenLinkHub only gets the CORE. The Commander PRO (0x0c10) and Lighting Node Pro (0x0c0b)
-# stay with CoolerControl, so nothing has two programs talking to it.
+# OpenLinkHub only gets the CORE. The Commander PRO (0x0c10) stays with CoolerControl and the
+# Lighting Node Pro (0x0c0b) keeps its hardware lighting.
 config=/opt/OpenLinkHub/config.json
 sudo systemctl stop OpenLinkHub.service
 sudo jq '.exclude = [3088, 3083]' "$config" | sudo tee "$config.tmp" >/dev/null
 sudo mv "$config.tmp" "$config"
 sudo systemctl enable --now OpenLinkHub.service
 
-# And CoolerControl stops polling the CORE. Its UID is a hash generated on this machine, so
-# look it up by name; the daemon must be stopped while the file is edited.
+# And CoolerControl stops talking to it. Disabling just the CORE device in CoolerControl still
+# initializes it through liquidctl, which knocked it back to the hardware color loop, so liquidctl
+# goes entirely: the Commander PRO falls back to its kernel driver (corsair-cpro), and the Lighting
+# Node Pro and Aura controller only do lighting, which CoolerControl wasn't setting anyway.
 cc_config=/etc/coolercontrol/config.toml
-if [ -f "$cc_config" ]; then
-  uid=$(grep -oP '^[0-9a-f]{64}(?= = "Corsair Commander Core)' "$cc_config" || true)
-  if [ -n "$uid" ] && ! grep -q "^\[settings\.$uid\]" "$cc_config"; then
-    sudo systemctl stop coolercontrold
-    printf '\n[settings.%s]\ndisabled = true\n' "$uid" | sudo tee -a "$cc_config" >/dev/null
-    sudo systemctl start coolercontrold
-  fi
+if [ -f "$cc_config" ] && grep -q '^liquidctl_integration = true' "$cc_config"; then
+  sudo systemctl stop coolercontrold
+  sudo sed -i 's/^liquidctl_integration = true/liquidctl_integration = false/' "$cc_config"
+  sudo systemctl start coolercontrold
 fi
