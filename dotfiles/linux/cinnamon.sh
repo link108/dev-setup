@@ -115,6 +115,9 @@ gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source-backward "
 gsettings set org.cinnamon.desktop.keybindings.wm toggle-fullscreen "['<Super>Return']"
 # super+tab switches windows like cmd-tab; alt+tab still works too
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows "['<Alt>Tab', '<Super>Tab']"
+# grab area for resizing at window edges (invisible, outside the frame); default 10px is fiddly.
+# alt+right-drag anywhere in a window resizes too (mouse-button-modifier, resize-with-right-button).
+gsettings set org.cinnamon.muffin draggable-border-width 20
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows-backward "['<Shift><Alt>Tab', '<Shift><Super>Tab']"
 # Applet settings files only exist after the applet has loaded once (first login).
 python3 - "$HOME/.config/cinnamon/spices" <<'EOF' | while read -r uuid; do
