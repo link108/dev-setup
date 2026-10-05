@@ -30,14 +30,16 @@ echo "==> keyboard: no xkb options (ctrl+alt+backspace can't kill X, super+space
 gsettings set org.gnome.libgnomekbd.keyboard options "[]"
 setxkbmap -option "" 2>/dev/null || true
 
-# Idle: no screensaver and no lock, the display just turns off after 15 min and wakes without a
-# password. ctrl+alt+l still locks on demand.
-echo "==> idle: display off after 15 min, no screensaver or lock"
+# Idle: no screensaver and no lock, the display just turns off after 30 min and wakes without a
+# password. ctrl+alt+l still locks on demand. The PC never suspends (sleep-inactive-*-timeout 0);
+# low power mode is a toggle instead (scripts/power-mode.sh).
+echo "==> idle: display off after 30 min, no screensaver or lock"
 gsettings set org.cinnamon.desktop.screensaver idle-activation-enabled false
 gsettings set org.cinnamon.desktop.screensaver lock-enabled false
 gsettings set org.cinnamon.settings-daemon.plugins.power lock-on-suspend false
-gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 900
-gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 900
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 1800
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 1800
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
 
 # Workspaces for cortile tiling: alt+N switches, alt+shift+N moves the window, same as
 # aerospace's alt-N / alt-shift-N. Modifiers match the Mac by name: alt = option, super = cmd.
@@ -113,11 +115,11 @@ gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source "['XF86Key
 gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source-backward "['<Shift>XF86Keyboard']"
 # super+enter fullscreens any app (ghostty's own ctrl+enter is unbound in ghostty/config)
 gsettings set org.cinnamon.desktop.keybindings.wm toggle-fullscreen "['<Super>Return']"
-# super+tab switches windows like cmd-tab; alt+tab still works too
-gsettings set org.cinnamon.desktop.keybindings.wm switch-windows "['<Alt>Tab', '<Super>Tab']"
 # grab area for resizing at window edges (invisible, outside the frame); default 10px is fiddly.
 # alt+right-drag anywhere in a window resizes too (mouse-button-modifier, resize-with-right-button).
 gsettings set org.cinnamon.muffin draggable-border-width 20
+# super+tab switches windows like cmd-tab; alt+tab still works too
+gsettings set org.cinnamon.desktop.keybindings.wm switch-windows "['<Alt>Tab', '<Super>Tab']"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows-backward "['<Shift><Alt>Tab', '<Shift><Super>Tab']"
 # Applet settings files only exist after the applet has loaded once (first login).
 python3 - "$HOME/.config/cinnamon/spices" <<'EOF' | while read -r uuid; do

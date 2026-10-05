@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Power Mode Tray
+Comment=Low power mode switch in the panel (scripts/power-mode-tray.py)
+Exec=sh -c "\\$HOME/.local/bin/power-mode-tray"
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

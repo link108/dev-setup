@@ -51,6 +51,10 @@ if [[ "$(uname -s)" == Linux ]]; then
   # super+q quits the focused app (bound in cinnamon.sh)
   link "$REPO/dotfiles/linux/scripts/quit-app.py" "$HOME/.local/bin/quit-app"
   link "$REPO/dotfiles/linux/scripts/focus-app.py" "$HOME/.local/bin/focus-app"
+  link "$REPO/dotfiles/linux/scripts/power-mode.sh" "$HOME/.local/bin/power-mode"
+  link "$REPO/dotfiles/linux/scripts/power-mode.desktop" "$HOME/.local/share/applications/power-mode.desktop"
+  link "$REPO/dotfiles/linux/scripts/power-mode-tray.py" "$HOME/.local/bin/power-mode-tray"
+  link "$REPO/dotfiles/linux/scripts/power-mode-tray.desktop" "$HOME/.config/autostart/power-mode-tray.desktop"
   # devilspie2: per-app window rules (spotify without a title bar), started by external/devilspie2.sh
   link "$REPO/dotfiles/linux/devilspie2/spotify.lua" "$HOME/.config/devilspie2/spotify.lua"
 else

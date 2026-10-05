@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Low Power Mode
+Comment=Toggle the power-saver profile (scripts/power-mode.sh)
+Keywords=power;saver;battery;eco;
+Exec=sh -c "\\$HOME/.local/bin/power-mode"
+Icon=power-profile-power-saver-symbolic
+Terminal=false
