@@ -3,8 +3,10 @@ kubectl = "latest"
 helm = "latest"
 just = "latest"
 "npm:@devcontainers/cli" = "latest"
+# npx/uvx for MCP servers (godot, blender); linux only, the mac has node from nvm
+node = { version = "lts", os = ["linux"] }
+uv = { version = "latest", os = ["linux"] }
 
 # Add these as desired
-# node = "24"
 # python = "3.13"
 # go = "1.25"
