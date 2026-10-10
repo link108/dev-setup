@@ -122,7 +122,7 @@ gsettings set org.cinnamon.muffin draggable-border-width 20
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows "['<Alt>Tab', '<Super>Tab']"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows-backward "['<Shift><Alt>Tab', '<Shift><Super>Tab']"
 # super+shift+s: drag a box, it lands on the clipboard ready to paste, like windows' win+shift+s.
-# xremap leaves this one alone so Cinnamon sees it (xremap/config.yml).
+# xremap passes it through so Cinnamon sees it (xremap/config.yml).
 gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot-clip "['<Control><Shift>Print', '<Shift><Super>s']"
 # Applet settings files only exist after the applet has loaded once (first login).
 python3 - "$HOME/.config/cinnamon/spices" <<'EOF' | while read -r uuid; do
