@@ -50,7 +50,8 @@ def windows(desktop):
         if desk != desktop:
             continue
         wtype = prop(wid, "_NET_WM_WINDOW_TYPE")
-        if "NORMAL" not in wtype and "DIALOG" not in wtype:
+        # no type at all (Blender) means normal, per EWMH
+        if "NORMAL" not in wtype and "DIALOG" not in wtype and "not found" not in wtype:
             continue
         if "HIDDEN" in prop(wid, "_NET_WM_STATE"):
             continue
