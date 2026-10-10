@@ -110,7 +110,7 @@ dconf write /org/cinnamon/desktop/keybindings/custom-list "$list"
 # Super is cmd (see the workspaces comment above): it shouldn't open the menu on its own or reach
 # panel applets (super+n notifications, super+c calendar shadowed ghostty's copy, ...).
 # super+space goes to ulauncher (external/ulauncher.sh), like spotlight on cmd-space.
-echo "==> keybindings: super alone does nothing, super+space for ulauncher, clear applet super binds"
+echo "==> keybindings: super alone does nothing, super+space for ulauncher, super+shift+s area screenshot, clear applet super binds"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source "['XF86Keyboard']"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source-backward "['<Shift>XF86Keyboard']"
 # super+enter fullscreens any app (ghostty's own ctrl+enter is unbound in ghostty/config)
@@ -121,6 +121,9 @@ gsettings set org.cinnamon.muffin draggable-border-width 20
 # super+tab switches windows like cmd-tab; alt+tab still works too
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows "['<Alt>Tab', '<Super>Tab']"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows-backward "['<Shift><Alt>Tab', '<Shift><Super>Tab']"
+# super+shift+s: drag a box, it lands on the clipboard ready to paste, like windows' win+shift+s.
+# xremap leaves this one alone so Cinnamon sees it (xremap/config.yml).
+gsettings set org.cinnamon.desktop.keybindings.media-keys area-screenshot-clip "['<Control><Shift>Print', '<Shift><Super>s']"
 # Applet settings files only exist after the applet has loaded once (first login).
 python3 - "$HOME/.config/cinnamon/spices" <<'EOF' | while read -r uuid; do
 import glob, json, os, sys
