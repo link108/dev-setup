@@ -1,0 +1,6 @@
+{
+    "uuid": "sysmon@link108",
+    "name": "System Monitor",
+    "description": "CPU, memory and GPU usage and temperatures as panel text",
+    "max-instances": 1
+}

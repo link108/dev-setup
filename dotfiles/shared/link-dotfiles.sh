@@ -58,6 +58,8 @@ if [[ "$(uname -s)" == Linux ]]; then
   # wine/proton windows don't steal focus when switching back to their workspace
   link "$REPO/dotfiles/linux/scripts/keep-focus.py" "$HOME/.local/bin/keep-focus"
   link "$REPO/dotfiles/linux/scripts/keep-focus.desktop" "$HOME/.config/autostart/keep-focus.desktop"
+  # panel applet: cpu/mem/gpu usage and temps (added to the panel by cinnamon.sh)
+  link "$REPO/dotfiles/linux/cinnamon/sysmon@link108" "$HOME/.local/share/cinnamon/applets/sysmon@link108"
   # devilspie2: per-app window rules (spotify without a title bar), started by external/devilspie2.sh
   link "$REPO/dotfiles/linux/devilspie2/spotify.lua" "$HOME/.config/devilspie2/spotify.lua"
 else

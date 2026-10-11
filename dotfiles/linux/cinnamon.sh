@@ -155,6 +155,26 @@ echo "==> panel: move to top, 32px"
 gsettings set org.cinnamon panels-enabled "['1:0:top']"
 gsettings set org.cinnamon panels-height "['1:32']"
 
+# sysmon@link108 lives in this repo (cinnamon/), linked by link-dotfiles.sh
+echo "==> panel: system monitor (cpu/mem/gpu) left of the tray"
+applets="$(gsettings get org.cinnamon enabled-applets)"
+applets="$(python3 -c '
+import ast, sys
+applets = ast.literal_eval(sys.argv[1])
+if not any("sysmon@link108" in a for a in applets):
+    # panel:zone:order:uuid:id; take the next free id and shift the right zone over one
+    new_id = max(int(a.split(":")[4]) for a in applets) + 1
+    out = []
+    for a in applets:
+        panel, zone, order, uuid, iid = a.split(":")
+        if panel == "panel1" and zone == "right":
+            order = str(int(order) + 1)
+        out.append(":".join((panel, zone, order, uuid, iid)))
+    applets = out + [f"panel1:right:0:sysmon@link108:{new_id}"]
+print(applets)
+' "$applets")"
+gsettings set org.cinnamon enabled-applets "$applets"
+
 if command -v plank >/dev/null 2>&1; then
   echo "==> panel: remove window list (plank replaces it)"
   applets="$(gsettings get org.cinnamon enabled-applets)"
