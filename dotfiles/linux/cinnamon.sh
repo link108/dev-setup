@@ -18,6 +18,13 @@ gsettings set $slideshow delay 15
 gsettings set $slideshow random-order true
 gsettings set $slideshow slideshow-enabled true
 
+# installed by external/macos-cursor.sh; org.gnome is what gtk4 and flatpak apps read
+echo "==> cursor: macOS"
+for schema in org.cinnamon.desktop.interface org.gnome.desktop.interface; do
+  gsettings set $schema cursor-theme macOS
+  gsettings set $schema cursor-size 24
+done
+
 echo "==> panel icon sizes (0 = scale to panel height)"
 gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 0, "center": 0, "right": 24}]'
 

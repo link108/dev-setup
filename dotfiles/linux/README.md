@@ -10,7 +10,7 @@ This is intentionally declarative and Brewfile-like.
 - `../shared/mise.toml` — language runtimes and CLI tool versions (linked to `~/.config/mise/config.toml`)
 - `../shared/link-dotfiles.sh` — symlinks zshrc, vimrc, git aliases, ghostty config (`ghostty/config` on linux), cortile config
 - `cortile/config.toml` — auto-tiling on top of Cinnamon (`external/cortile.sh` installs it), super keybinds modelled on `config/aerospace`
-- `cinnamon.sh` — desktop prefs: wallpaper slideshow (`~/Documents/desktop-backgrounds`), top panel + Plank dock at bottom (macOS-ish), panel icon size, 6 workspaces on super+N / super+shift+N, no window-list badges
+- `cinnamon.sh` — desktop prefs: macOS cursors (`external/macos-cursor.sh` installs them), wallpaper slideshow (`~/Documents/desktop-backgrounds`), top panel + Plank dock at bottom (macOS-ish), panel icon size, 6 workspaces on super+N / super+shift+N, no window-list badges
 - `cinnamon/sysmon@link108/` — panel applet showing CPU/mem/GPU usage and temps (linked by `link-dotfiles.sh`, added to the panel by `cinnamon.sh`)
 - `bootstrap-linux.sh` — generic runner; it reads the files above
 
