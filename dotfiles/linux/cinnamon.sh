@@ -48,6 +48,28 @@ gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 1800
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 1800
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
 
+# The nvidia driver picks 60 Hz by default even on a 144 Hz monitor. Ask muffin for the fastest
+# mode at each monitor's current resolution; method 2 saves it to ~/.config/cinnamon-monitors.xml.
+echo "==> displays: highest refresh rate at current resolution"
+python3 <<'EOF' || echo "    (display config skipped)"
+from gi.repository import Gio, GLib
+bus = Gio.bus_get_sync(Gio.BusType.SESSION)
+def call(method, args=None, reply=None):
+    return bus.call_sync("org.cinnamon.Muffin.DisplayConfig", "/org/cinnamon/Muffin/DisplayConfig",
+                         "org.cinnamon.Muffin.DisplayConfig", method, args,
+                         GLib.VariantType(reply) if reply else None, 0, -1, None).unpack()
+serial, monitors, logical, _ = call("GetCurrentState", reply="(ua((ssss)a(siiddada{sv})a{sv})a(iiduba(ssss)a{sv})a{sv})")
+best = {}
+for (connector, *_), modes, _ in monitors:
+    cur = next(m for m in modes if m[6].get("is-current"))
+    best[connector] = max((m for m in modes if m[1:3] == cur[1:3]), key=lambda m: m[3])[0]
+config = [(x, y, scale, transform, primary, [(spec[0], best[spec[0]], {}) for spec in specs])
+          for x, y, scale, transform, primary, specs, _ in logical]
+call("ApplyMonitorsConfig", GLib.Variant("(uua(iiduba(ssa{sv}))a{sv})", (serial, 2, config, {})))
+for connector, mode in best.items():
+    print(f"    {connector}: {mode}")
+EOF
+
 # Workspaces for cortile tiling: alt+N switches, alt+shift+N moves the window, same as
 # aerospace's alt-N / alt-shift-N. Modifiers match the Mac by name: alt = option, super = cmd.
 echo "==> workspaces: 6, alt+N switch, alt+shift+N move window"
