@@ -114,6 +114,7 @@ main() {
   install_flatpak_file "$ROOT/flatpak.txt"
   install_external_scripts
   link_dotfiles
+  bash "$ROOT/../shared/agent-skills.sh"
   install_mise
   set_default_shell
   configure_desktop
