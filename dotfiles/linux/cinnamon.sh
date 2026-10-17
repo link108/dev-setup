@@ -224,6 +224,24 @@ print([a for a in ast.literal_eval(sys.argv[1]) if "grouped-window-list@" not in
   gsettings set $dock zoom-enabled true
   gsettings set $dock zoom-percent 150
 
+  # plank pairs windows with launchers by StartupWMClass; without a match the
+  # dock shows the generic icon. Shadow the launcher in ~/.local with the real class.
+  echo "==> plank: fix launcher window classes (slack, space idle)"
+  apps="$HOME/.local/share/applications"
+  mkdir -p "$apps"
+  fix_wmclass() { # source desktop file, window class, [icon path]
+    [ -f "$1" ] || return 0
+    local dest="$apps/$(basename "$1")"
+    grep -v '^StartupWMClass=' "$1" | sed "/^\[Desktop Entry\]/a StartupWMClass=$2" > "$dest.tmp"
+    [ -f "${3:-}" ] && sed -i "s|^Icon=.*|Icon=$3|" "$dest.tmp"
+    mv "$dest.tmp" "$dest"
+  }
+  fix_wmclass /var/lib/flatpak/exports/share/applications/com.slack.Slack.desktop com.slack.Slack
+  # steam saved this icon under hicolor/160x160, which isn't a theme size, so name lookup fails
+  fix_wmclass "$apps/Unnamed Space Idle.desktop" SpaceIdle \
+    "$HOME/.local/share/icons/hicolor/160x160/apps/steam_icon_2471100.png"
+  update-desktop-database "$apps" 2>/dev/null || true
+
   mkdir -p "$HOME/.config/autostart"
   cat > "$HOME/.config/autostart/plank.desktop" <<'EOF'
 [Desktop Entry]
