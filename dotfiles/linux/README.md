@@ -7,6 +7,7 @@ This is intentionally declarative and Brewfile-like.
 - `apt.txt` — one APT package per line
 - `flatpak.txt` — one Flathub app ID per line
 - `external/*.sh` — vendor installers, each one idempotent
+- `external/kvm-monitor.sh` — pins the nvidia monitor(s) as always connected (saved EDID) so switching the KVM away no longer shrinks the screen and squashes windows
 - `../shared/mise.toml` — language runtimes and CLI tool versions (linked to `~/.config/mise/config.toml`)
 - `../shared/link-dotfiles.sh` — symlinks zshrc, vimrc, git aliases, ghostty config (`ghostty/config` on linux), cortile config
 - `cortile/config.toml` — auto-tiling on top of Cinnamon (`external/cortile.sh` installs it), super keybinds modelled on `config/aerospace`
