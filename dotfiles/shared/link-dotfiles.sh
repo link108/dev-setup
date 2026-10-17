@@ -60,8 +60,9 @@ if [[ "$(uname -s)" == Linux ]]; then
   link "$REPO/dotfiles/linux/scripts/keep-focus.desktop" "$HOME/.config/autostart/keep-focus.desktop"
   # panel applet: cpu/mem/gpu usage and temps (added to the panel by cinnamon.sh)
   link "$REPO/dotfiles/linux/cinnamon/sysmon@link108" "$HOME/.local/share/cinnamon/applets/sysmon@link108"
-  # devilspie2: per-app window rules (spotify without a title bar), started by external/devilspie2.sh
+  # devilspie2: per-app window rules (spotify and slack without a title bar), started by external/devilspie2.sh
   link "$REPO/dotfiles/linux/devilspie2/spotify.lua" "$HOME/.config/devilspie2/spotify.lua"
+  link "$REPO/dotfiles/linux/devilspie2/slack.lua" "$HOME/.config/devilspie2/slack.lua"
 else
   link "$REPO/config/ghostty/config" "$HOME/.config/ghostty/config"
   # aerospace tiling (cortile is the linux counterpart); alt-* binds, caps is option via macos/keyboard.sh
