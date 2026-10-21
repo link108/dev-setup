@@ -180,3 +180,5 @@ brew 'aws-cdk'
 
 brew 'tailscale'
 
+
+mas "Amphetamine", id: 937984704
