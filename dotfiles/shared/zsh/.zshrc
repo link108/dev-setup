@@ -2,9 +2,12 @@
 
 # PATH
 typeset -U path
+# Homebrew (macOS). Nothing else puts /opt/homebrew/bin on PATH, there's no ~/.zprofile
+[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 path=("$HOME/.local/bin" "$HOME/bin" $path)
 
-# Completion
+# Completion (brew's zsh-completions has to be in fpath before compinit)
+(( $+commands[brew] )) && fpath=("$HOMEBREW_PREFIX/share/zsh-completions" "$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
 autoload -Uz compinit && compinit
 autoload -Uz bashcompinit && bashcompinit
 zstyle ':completion:*' menu select

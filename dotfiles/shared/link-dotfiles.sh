@@ -64,6 +64,12 @@ if [[ "$(uname -s)" == Linux ]]; then
   link "$REPO/dotfiles/linux/devilspie2/spotify.lua" "$HOME/.config/devilspie2/spotify.lua"
 else
   link "$REPO/config/ghostty/config" "$HOME/.config/ghostty/config"
+  # aerospace tiling (cortile is the linux counterpart); alt-* binds, caps is option via macos/keyboard.sh
+  link "$REPO/config/aerospace/aerospace.toml" "$HOME/.config/aerospace/aerospace.toml"
+  # neovim (lazy.nvim bootstraps itself on first start; lazy-lock.json updates land in the repo)
+  link "$REPO/config/nvim" "$HOME/.config/nvim"
+  # tmux: only the conf is linked so tpm and its plugins install into ~/.config/tmux/plugins, not the repo
+  link "$REPO/config/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 fi
 
 # mise global tools

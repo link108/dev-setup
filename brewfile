@@ -1,12 +1,12 @@
 
 #tap "homebrew/cask"
-tap "homebrew/cask-versions"
-tap "homebrew/services"
 tap "versent/homebrew-taps"
 tap "mongodb/brew"
 tap "bufbuild/buf"
+tap "nikitabobko/tap" # aerospace
 tap "qmk/qmk"
-tap "mongodb/brew"
+tap "osx-cross/avr" # avr-gcc@8, needed by qmk
+tap "osx-cross/arm" # arm-none-eabi-gcc, needed by qmk
 
 
 #cask "macfuse"
@@ -15,7 +15,6 @@ tap "mongodb/brew"
 brew "tmux"
 brew "go"
 brew "git" # Get a more up to date version of git than default on macOS
-brew "vault"
 brew "consul-template"
 brew "nvm"  # Node Version Manager
 brew "jq"
@@ -28,12 +27,13 @@ brew "netcat"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 brew "zsh-history-substring-search"
+brew "fzf"
+brew "fd"
 brew "ack"
 brew "watch"
-brew "jfrog-cli-go"
+brew "jfrog-cli"
 brew "rbenv"
 brew "ruby-build"
-brew "datawire/blackbird/telepresence"
 brew "yarn"
 brew "telnet"
 brew "groovysdk"
@@ -65,7 +65,7 @@ brew "act"
 # Cloud
 brew "awscli"
 brew "aws-iam-authenticator"
-cask "google-cloud-sdk"
+cask "gcloud-cli"
 
 #################
 # This is used, but commented out, since it unnecessarily continues to re-install and fails to find python
@@ -75,7 +75,8 @@ cask "google-cloud-sdk"
 # Kubernetes / Containers
 brew "kubectl"
 brew "k9s"
-cask "docker"
+brew "k3d"
+cask "orbstack" # docker engine + k8s, replaces docker desktop
 #cask 'rancher'
 
 # User applications
@@ -100,11 +101,11 @@ cask "postman"
 cask "bruno"
 cask "sublime-text"
 cask "alfred"
-cask "dash6"
+cask "dash"
 cask "zoom"
 cask "visual-studio-code"
 cask "spotify"
-cask "arduino"
+cask "arduino-ide"
 cask "tunnelblick"
 brew "openssl@3"
 brew "libyaml" 
@@ -136,7 +137,7 @@ brew "liquibase"
 cask "prisma-studio"
 
 # Databases
-cask "graphiql"
+#cask "graphiql" # no longer in homebrew
 cask "dbeaver-community"
 brew "duckdb"
 brew "mongodb-community"
@@ -153,7 +154,6 @@ brew "bazelisk"
 brew "clang-format"
 
 brew 'pkg-config'
-brew 'avr-gcc'
 brew 'avro-c'
 brew 'qmk/qmk/qmk'
 cask 'qmk-toolbox'

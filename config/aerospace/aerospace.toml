@@ -1,5 +1,4 @@
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
+# Linked to ~/.config/aerospace/aerospace.toml by dotfiles/shared/link-dotfiles.sh
 
 
 # You can use it to add commands that run after login to macOS user session.
@@ -13,7 +12,7 @@ after-login-command = []
 after-startup-command = []
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
