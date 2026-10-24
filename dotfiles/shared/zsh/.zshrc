@@ -67,6 +67,8 @@ else
   # Mac clipboard commands; the clipboard selection is ctrl+c/v, not the middle-click one
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboard -o'
+  # Docker API clients (compose, testcontainers) talk to podman's socket (external/podman.sh)
+  [[ -S $XDG_RUNTIME_DIR/podman/podman.sock ]] && export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 fi
 export EDITOR=vim VISUAL=vim
 
