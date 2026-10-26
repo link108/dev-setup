@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Tailscale Tray
+Comment=Tailscale devices and exit nodes in the panel (scripts/tailscale-tray.py)
+Exec=sh -c "\\$HOME/.local/bin/tailscale-tray"
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
