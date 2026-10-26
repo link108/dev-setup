@@ -8,6 +8,11 @@ window-padding-x = 6
 window-padding-y = 4
 window-padding-balance = true
 
+# Tab bar: thin and flat, coloured like the terminal (sizes in tabs.css, next to this file)
+window-theme = ghostty
+gtk-toolbar-style = flat
+gtk-custom-css = tabs.css
+
 
 # Themes
 

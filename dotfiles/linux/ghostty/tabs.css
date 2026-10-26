@@ -1,0 +1,46 @@
+/* Thin, flat tab bar. Loaded by gtk-custom-css in ghostty/config; sizes override libadwaita's
+   (tabbox 34px + 6px padding, tab 26px, 24px buttons). Tweak live: GTK_DEBUG=interactive ghostty */
+
+tabbar tabbox {
+  min-height: 22px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+tabbar .start-action,
+tabbar .end-action {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+tabbar tab {
+  min-height: 18px;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+tabbar tabbox > tabboxchild {
+  border-radius: 4px;
+}
+
+tabbar tab label {
+  font-size: 0.85em;
+}
+
+tabbar tab button.image-button,
+tabbar .start-action button,
+tabbar .end-action button {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 0;
+}
+
+/* no dividers between tabs */
+tabbar tabbox > separator {
+  opacity: 0;
+}
+
+/* unfocused tabs fade back */
+tabbar tab:not(:selected) label {
+  opacity: 0.55;
+}

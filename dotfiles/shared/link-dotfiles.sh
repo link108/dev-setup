@@ -39,6 +39,7 @@ fi
 # ghostty: linux has its own config (alt keybinds); config/ghostty is macOS
 if [[ "$(uname -s)" == Linux ]]; then
   link "$REPO/dotfiles/linux/ghostty/config" "$HOME/.config/ghostty/config"
+  link "$REPO/dotfiles/linux/ghostty/tabs.css" "$HOME/.config/ghostty/tabs.css"
   # cortile tiling (linux only; aerospace is the macOS counterpart)
   link "$REPO/dotfiles/linux/cortile/config.toml"   "$HOME/.config/cortile/config.toml"
   link "$REPO/dotfiles/linux/cortile/focus-direction.py" "$HOME/.config/cortile/focus-direction.py"
