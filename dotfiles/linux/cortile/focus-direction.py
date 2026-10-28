@@ -2,10 +2,12 @@
 """Focus the nearest window in a direction (left|down|up|right) on the current workspace.
 
 Cortile only cycles focus next/previous, so this fills in aerospace-style hjkl focus.
-Bound to alt+h/j/k/l by cinnamon.sh. Needs wmctrl, xprop and xwininfo.
+With --swap the focused window trades tiles with that neighbour instead (aerospace's move).
+Bound to alt+h/j/k/l and alt+shift+h/j/k/l by cinnamon.sh. Needs wmctrl, xprop, xwininfo and busctl.
 """
 import subprocess
 import sys
+import time
 
 
 def run(*cmd):
@@ -67,10 +69,55 @@ def overlap(a0, a1, b0, b1):
     return min(a1, b1) - max(a0, b0)
 
 
+def cortile(action):
+    name, path = "com.github.leukipp.cortile", "/com/github/leukipp/cortile"
+    subprocess.run(["busctl", "--user", "call", name, path, name, "ActionExecute", "sii",
+                    action, current_desktop(), "0"], capture_output=True)
+
+
+def wait(check, timeout=0.5):
+    end = time.monotonic() + timeout
+    while not check() and time.monotonic() < end:
+        time.sleep(0.02)
+
+
+def make_master(wid):
+    """Focus a window and have cortile swap it with the first master (its only swap action)."""
+    before = geometry(hex(wid))
+    if active_window() != wid:
+        subprocess.run(["wmctrl", "-ia", hex(wid)])
+        wait(lambda: active_window() == wid)
+        time.sleep(0.05)  # let cortile see the focus change too
+    cortile("master_make")
+    wait(lambda: geometry(hex(wid)) != before)
+
+
+def swap(a, b, wins):
+    """Swap tiles a and b. Cortile's dbus WindowToPosition is meant to do this (it fakes a drag)
+    but never finds the drop target under Muffin, so build it from master swaps instead."""
+    _, ax, ay, aw, ah = next(win for win in wins if win[0] == a)
+    make_master(a)
+
+    def in_old_tile(wid):
+        x, y, w, h = geometry(hex(wid))
+        return ax <= x + w // 2 <= ax + aw and ay <= y + h // 2 <= ay + ah
+
+    # whatever took a's old tile was the master; if nothing moved, a already was
+    master = next((win[0] for win in wins if win[0] != a and in_old_tile(win[0])), a)
+    if master != b:
+        make_master(b)
+        if master != a:
+            make_master(master)
+    subprocess.run(["wmctrl", "-ia", hex(a)])
+
+
 def main():
-    direction = sys.argv[1] if len(sys.argv) > 1 else ""
+    args = sys.argv[1:]
+    swapping = "--swap" in args
+    args = [a for a in args if a != "--swap"]
+    direction = args[0] if args else ""
     if direction not in ("left", "down", "up", "right"):
-        sys.exit("usage: focus-direction.py left|down|up|right")
+        sys.exit("usage: focus-direction.py [--swap] left|down|up|right")
 
     wins = list(windows(current_desktop()))
     active = active_window()
@@ -103,7 +150,11 @@ def main():
         if best_cost is None or cost < best_cost:
             best, best_cost = wid, cost
 
-    if best is not None:
+    if best is None:
+        return
+    if swapping:
+        swap(active, best, wins)
+    else:
         subprocess.run(["wmctrl", "-ia", hex(best)])
 
 

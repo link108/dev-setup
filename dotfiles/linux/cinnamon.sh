@@ -82,8 +82,10 @@ for n in 1 2 3 4 5 6; do
   gsettings set org.cinnamon.desktop.keybindings.wm move-to-workspace-$n "['<Alt><Shift>$n']"
 done
 
-# Directional focus for cortile (it only has next/previous): alt+h/j/k/l, like aerospace
-echo "==> keybindings: alt+h/j/k/l focus window left/down/up/right, alt+enter take over screen, alt+shift+t tiling on/off"
+# Directional focus for cortile (it only has next/previous): alt+h/j/k/l, like aerospace.
+# alt+shift+h/j/k/l swaps with that neighbour (aerospace's move). The service mode on
+# alt+shift+; is in xremap/config.yml, since Cinnamon has no binding modes.
+echo "==> keybindings: alt+h/j/k/l focus window left/down/up/right, alt+shift+h/j/k/l swap, alt+enter take over screen, alt+shift+t tiling on/off"
 echo "==> keybindings: alt+t/c/s ghostty/chrome/slack, alt+shift+s/d spotify/discord"
 focus="$HOME/.config/cortile/focus-direction.py"
 custom=/org/cinnamon/desktop/keybindings/custom-keybindings
@@ -93,6 +95,11 @@ for pair in h:left j:down k:up l:right; do
   dconf write "$custom/$id/name" "'Focus window $dir'"
   dconf write "$custom/$id/command" "'$focus $dir'"
   dconf write "$custom/$id/binding" "['<Alt>$key']"
+  ids+=("'$id'")
+  id="swap-$dir"
+  dconf write "$custom/$id/name" "'Swap window $dir'"
+  dconf write "$custom/$id/command" "'$focus --swap $dir'"
+  dconf write "$custom/$id/binding" "['<Alt><Shift>$key']"
   ids+=("'$id'")
 done
 # alt+enter: focused window takes over the screen and back (aerospace alt-enter), via cortile

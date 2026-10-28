@@ -45,6 +45,7 @@ if [[ "$(uname -s)" == Linux ]]; then
   link "$REPO/dotfiles/linux/cortile/focus-direction.py" "$HOME/.config/cortile/focus-direction.py"
   link "$REPO/dotfiles/linux/cortile/zoom-toggle.sh" "$HOME/.config/cortile/zoom-toggle.sh"
   link "$REPO/dotfiles/linux/cortile/tiling-toggle.sh" "$HOME/.config/cortile/tiling-toggle.sh"
+  link "$REPO/dotfiles/linux/cortile/retile.sh"      "$HOME/.config/cortile/retile.sh"
   # xremap: super acts as cmd in apps (super+t -> ctrl+t), started by external/xremap.sh
   link "$REPO/dotfiles/linux/xremap/config.yml" "$HOME/.config/xremap/config.yml"
   # ulauncher wrapper: picking an open app switches to it (started by external/ulauncher.sh)

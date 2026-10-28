@@ -4,7 +4,25 @@
 # (Cinnamon tiling), alt beyond the word keys below (cortile). Installed and started by
 # external/xremap.sh; xremap reloads it on in-place saves, but an editor that replaces the file
 # needs xremap restarted.
+default_mode: default
 keymap:
+  # Service mode, like aerospace's alt-shift-; (Cinnamon has no binding modes, so xremap holds
+  # it). Keymaps without a mode apply in both; keys not listed here pass through while in it.
+  # Window moves themselves are cortile actions (cortile/retile.sh).
+  - name: enter service mode
+    mode: default
+    remap:
+      Alt-Shift-semicolon: { set_mode: service }
+  - name: service mode
+    mode: service
+    remap:
+      Esc: { set_mode: default }
+      r: [{ launch: ["sh", "-c", "$HOME/.config/cortile/retile.sh reset"] }, { set_mode: default }]
+      Alt-Shift-h: [{ launch: ["sh", "-c", "$HOME/.config/cortile/retile.sh left"] }, { set_mode: default }]
+      Alt-Shift-j: [{ launch: ["sh", "-c", "$HOME/.config/cortile/retile.sh down"] }, { set_mode: default }]
+      Alt-Shift-k: [{ launch: ["sh", "-c", "$HOME/.config/cortile/retile.sh up"] }, { set_mode: default }]
+      Alt-Shift-l: [{ launch: ["sh", "-c", "$HOME/.config/cortile/retile.sh right"] }, { set_mode: default }]
+
   # alt+shift+d is Discord (focus-app, cinnamon.sh) and super+shift+s the area screenshot. xremap
   # matches with extra modifiers held, so Alt-d and Super-s below would eat them; the first keymap
   # that matches wins, so pass them through.
