@@ -23,13 +23,18 @@ keymap:
       Alt-Shift-k: [{ launch: ["sh", "-c", "$HOME/.config/cortile/retile.sh up"] }, { set_mode: default }]
       Alt-Shift-l: [{ launch: ["sh", "-c", "$HOME/.config/cortile/retile.sh right"] }, { set_mode: default }]
 
-  # alt+shift+d is Discord (focus-app, cinnamon.sh) and super+shift+s the area screenshot. xremap
-  # matches with extra modifiers held, so Alt-d and Super-s below would eat them; the first keymap
-  # that matches wins, so pass them through.
+  # alt+shift+d is Discord (focus-app, cinnamon.sh), super+shift+s the area screenshot and
+  # ctrl+alt(+shift)+arrows Cinnamon's workspace keys. xremap matches with extra modifiers held, so
+  # Alt-d, Super-s and Alt-Left/Right below would eat them; the first keymap that matches wins, so
+  # pass them through.
   - name: cinnamon keys
     remap:
       Alt-Shift-d: Alt-Shift-d
       Super-Shift-s: Super-Shift-s
+      C-Alt-Left: C-Alt-Left
+      C-Alt-Right: C-Alt-Right
+      C-Alt-Shift-Left: C-Alt-Shift-Left
+      C-Alt-Shift-Right: C-Alt-Shift-Right
 
   # Mac line and word keys, everywhere but ghostty (the shell already does these). Safe because the
   # apps' own ctrl+a/e/k (select all, ...) are reached with super, which is sent as ctrl below and
@@ -51,6 +56,9 @@ keymap:
       # word keys like option on the Mac (alt = option, see the header)
       Alt-f: C-Right
       Alt-b: C-Left
+      # and option+arrows (otherwise back/forward in browsers, which is super+[ and ] here)
+      Alt-Right: C-Right
+      Alt-Left: C-Left
       Alt-d: C-Delete
       Alt-Backspace: C-Backspace
 
