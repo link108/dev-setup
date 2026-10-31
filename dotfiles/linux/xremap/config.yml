@@ -1,7 +1,7 @@
 # Super is cmd (VIA puts it where cmd sits on a Mac). Linux apps use ctrl for those shortcuts,
 # so outside ghostty super+<key> is sent as ctrl+<key>. Ghostty binds super itself (ghostty/config).
-# Not remapped: super+space (ulauncher), super+q/enter/tab/shift+s (Cinnamon, cinnamon.sh), super+arrows
-# (Cinnamon tiling), alt beyond the word keys below (cortile). Installed and started by
+# Not remapped: super+space (ulauncher), super+q/enter/tab/shift+s (Cinnamon, cinnamon.sh), alt
+# beyond the word keys below (cortile). Installed and started by
 # external/xremap.sh; xremap reloads it on in-place saves, but an editor that replaces the file
 # needs xremap restarted.
 default_mode: default
@@ -103,6 +103,12 @@ keymap:
       Super-Shift-rightbrace: C-pagedown
       Super-leftbrace: Alt-left
       Super-rightbrace: Alt-right
+      # line and input ends like cmd+arrows; with shift they select (Cinnamon's tiling on these is
+      # cleared in cinnamon.sh)
+      Super-Left: Home
+      Super-Right: End
+      Super-Up: C-Home
+      Super-Down: C-End
       Super-1: C-1
       Super-2: C-2
       Super-3: C-3

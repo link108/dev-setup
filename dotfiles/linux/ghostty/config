@@ -146,6 +146,10 @@ theme = Hardcore
 
 # Modifier: super is cmd, same key and name as on the Mac (alt is cortile's, like aerospace's option).
 
+# Line start/end like cmd+arrows on the Mac (the shell's ctrl+a/e)
+keybind = super+left=text:\x01
+keybind = super+right=text:\x05
+
 # Clipboard: super+c/v (ctrl+shift+c/v also work)
 keybind = super+c=copy_to_clipboard
 keybind = super+v=paste_from_clipboard

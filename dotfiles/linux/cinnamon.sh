@@ -146,7 +146,7 @@ dconf write /org/cinnamon/desktop/keybindings/custom-list "$list"
 # Super is cmd (see the workspaces comment above): it shouldn't open the menu on its own or reach
 # panel applets (super+n notifications, super+c calendar shadowed ghostty's copy, ...).
 # super+space goes to ulauncher (external/ulauncher.sh), like spotlight on cmd-space.
-echo "==> keybindings: super alone does nothing, super+space for ulauncher, super+shift+s area screenshot, clear applet super binds"
+echo "==> keybindings: super alone does nothing, super+space for ulauncher, super+shift+s area screenshot, no super+arrow tiling, clear applet super binds"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source "['XF86Keyboard']"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-input-source-backward "['<Shift>XF86Keyboard']"
 # super+enter fullscreens any app (ghostty's own ctrl+enter is unbound in ghostty/config)
@@ -154,6 +154,12 @@ gsettings set org.cinnamon.desktop.keybindings.wm toggle-fullscreen "['<Super>Re
 # grab area for resizing at window edges (invisible, outside the frame); default 10px is fiddly.
 # alt+right-drag anywhere in a window resizes too (mouse-button-modifier, resize-with-right-button).
 gsettings set org.cinnamon.muffin draggable-border-width 20
+# super(+shift)+arrows are line/input ends in text, like cmd+arrows (xremap/config.yml); without
+# this Cinnamon tiles or moves the window instead
+for dir in left right up down; do
+  gsettings set org.cinnamon.desktop.keybindings.wm push-tile-$dir "[]"
+  gsettings set org.cinnamon.desktop.keybindings.wm move-to-monitor-$dir "[]"
+done
 # super+tab switches windows like cmd-tab; alt+tab still works too
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows "['<Alt>Tab', '<Super>Tab']"
 gsettings set org.cinnamon.desktop.keybindings.wm switch-windows-backward "['<Shift><Alt>Tab', '<Shift><Super>Tab']"
