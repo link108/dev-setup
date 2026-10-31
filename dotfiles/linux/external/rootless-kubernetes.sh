@@ -29,6 +29,16 @@ if [[ ! -f "$modules" ]]; then
   sudo systemctl restart systemd-modules-load.service
 fi
 
+# Every kind node runs its own systemd, kubelet and containers, each holding inotify instances that
+# count against the user. The default of 128 runs out with one node and a desktop session open, and
+# Envoy then aborts at startup. kind's known-issues page recommends these values.
+inotify=/etc/sysctl.d/60-inotify-kind.conf
+if [[ ! -f "$inotify" ]]; then
+  echo "==> rootless kubernetes: raise inotify limits for kind nodes (sudo)"
+  printf '%s\n' 'fs.inotify.max_user_instances = 512' 'fs.inotify.max_user_watches = 524288' | sudo tee "$inotify" >/dev/null
+  sudo sysctl --quiet --load "$inotify"
+fi
+
 # Podman before 5.8 copies tar archives into containers (podman cp, the Docker archive API) in a
 # way that breaks with "write |1: broken pipe" on small pipes (containers/buildah#6573). Pipes
 # shrink to 8 KiB once a user is over fs.pipe-user-pages-soft (16384 pages), which Wine and
