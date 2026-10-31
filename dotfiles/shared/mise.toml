@@ -1,6 +1,8 @@
 [tools]
 kubectl = "latest"
 helm = "latest"
+# disposable clusters; host setup on linux: linux/external/rootless-kubernetes.sh
+kind = "latest"
 just = "latest"
 "npm:@devcontainers/cli" = "latest"
 # npx/uvx for MCP servers (godot, blender)

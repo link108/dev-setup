@@ -7,6 +7,7 @@ This is intentionally declarative and Brewfile-like.
 - `apt.txt` — one APT package per line
 - `flatpak.txt` — one Flathub app ID per line
 - `external/*.sh` — vendor installers, each one idempotent
+- `external/rootless-kubernetes.sh` — lets kind (mise) and k3d run cluster nodes on rootless podman: delegates the cpuset and io cgroup controllers to user sessions, loads the iptables modules at boot, and raises the per-user pipe budget that podman 4.x copies break on (log out and back in afterwards)
 - `external/kvm-monitor.sh` — pins the nvidia monitor(s) as always connected (saved EDID) so switching the KVM away no longer shrinks the screen and squashes windows
 - `../shared/mise.toml` — language runtimes and CLI tool versions (linked to `~/.config/mise/config.toml`)
 - `../shared/link-dotfiles.sh` — symlinks zshrc, vimrc, git aliases, ghostty config (`ghostty/config` on linux), cortile config
