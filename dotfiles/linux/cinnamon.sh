@@ -217,6 +217,36 @@ print(applets)
 ' "$applets")"
 gsettings set org.cinnamon enabled-applets "$applets"
 
+# cornerbar is the show-desktop toggle in the far right corner
+echo "==> panel: remove show-desktop corner toggle"
+applets="$(gsettings get org.cinnamon enabled-applets)"
+applets="$(python3 -c '
+import ast, sys
+print([a for a in ast.literal_eval(sys.argv[1]) if "cornerbar@" not in a])
+' "$applets")"
+gsettings set org.cinnamon enabled-applets "$applets"
+
+# without the corner toggle the clock sits flush against the screen edge; a trailing figure
+# space (U+2007, one digit wide; a plain space is only ~3px) in its format gives it room and,
+# unlike a spacer applet, still opens the calendar on click.
+# The settings file only exists after the applet has loaded once (first login).
+echo "==> panel: clock gets a trailing space"
+for f in "$HOME"/.config/cinnamon/spices/calendar@cinnamon.org/*.json; do
+  [[ -f "$f" ]] || continue
+  python3 - "$f" <<'EOF'
+import json, sys
+with open(sys.argv[1]) as f:
+    d = json.load(f)
+d["use-custom-format"]["value"] = True
+d["custom-format"]["value"] = "%H:%M "
+d["custom-tooltip-format"]["value"] = "%A, %B %-e, %Y"
+with open(sys.argv[1], "w") as f:
+    json.dump(d, f, indent=4)
+EOF
+  dbus-send --session --print-reply --dest=org.Cinnamon /org/Cinnamon \
+    org.Cinnamon.ReloadXlet string:'calendar@cinnamon.org' string:'APPLET' >/dev/null 2>&1 || true
+done
+
 if command -v plank >/dev/null 2>&1; then
   echo "==> panel: remove window list (plank replaces it)"
   applets="$(gsettings get org.cinnamon enabled-applets)"
