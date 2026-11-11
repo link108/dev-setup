@@ -100,3 +100,6 @@ for plugin in zsh-syntax-highlighting; do
   done
 done
 unset plugin dir
+
+# Machine-local settings (not checked in anywhere)
+[ -f ~/.zsh_local ] && source ~/.zsh_local
