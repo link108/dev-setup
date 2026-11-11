@@ -5,6 +5,8 @@ helm = "latest"
 kind = "latest"
 just = "latest"
 "npm:@devcontainers/cli" = "latest"
+# browser automation for agents (claude code, codex)
+"npm:@playwright/cli" = "latest"
 # npx/uvx for MCP servers (godot, blender)
 node = "lts"
 uv = "latest"

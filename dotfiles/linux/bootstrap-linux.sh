@@ -116,6 +116,7 @@ main() {
   link_dotfiles
   bash "$ROOT/../shared/agent-skills.sh"
   install_mise
+  bash "$ROOT/../shared/playwright-skill.sh"
   set_default_shell
   configure_desktop
 

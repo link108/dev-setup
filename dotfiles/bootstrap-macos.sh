@@ -60,6 +60,7 @@ main() {
   link_dotfiles
   bash "$ROOT/shared/agent-skills.sh"
   install_mise
+  bash "$ROOT/shared/playwright-skill.sh"
   install_tpm
   bash "$ROOT/macos/keyboard.sh"
   start_aerospace
